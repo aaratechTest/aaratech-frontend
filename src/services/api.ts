@@ -1,4 +1,6 @@
-const BASE_URL = "/api";
+const BASE_URL = import.meta.env.PROD
+  ? "https://aaratech-backend.vercel.app/api"
+  : "/api";
 
 interface RequestOptions {
   method?: string;
