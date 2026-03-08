@@ -1,0 +1,56 @@
+/* ============================================
+   REUSABLE ALERT
+============================================ */
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  line-height: var(--line-height-normal);
+  border-left: 3px solid transparent;
+}
+
+.alert__icon {
+  flex-shrink: 0;
+  display: flex;
+  margin-top: 1px;
+}
+
+.alert__content {
+  flex: 1;
+}
+
+/* Variants */
+.alert--info {
+  background: var(--color-primary-bg);
+  color: var(--color-primary-dark);
+  border-left-color: var(--color-primary);
+}
+
+.alert--info .alert__icon { color: var(--color-primary); }
+
+.alert--success {
+  background: #ecfdf5;
+  color: #065f46;
+  border-left-color: var(--color-success);
+}
+
+.alert--success .alert__icon { color: var(--color-success); }
+
+.alert--warning {
+  background: #fffbeb;
+  color: #92400e;
+  border-left-color: var(--color-accent);
+}
+
+.alert--warning .alert__icon { color: var(--color-accent); }
+
+.alert--error {
+  background: var(--color-secondary-light);
+  color: var(--color-secondary);
+  border-left-color: var(--color-secondary);
+}
+
+.alert--error .alert__icon { color: var(--color-secondary); }

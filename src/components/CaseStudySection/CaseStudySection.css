@@ -1,0 +1,165 @@
+/* ============================================
+   CASE STUDY SECTION (Home Page)
+   
+   USES: theme.css variables throughout
+============================================ */
+
+.case-section {
+  padding: 90px var(--section-padding-x);
+  background: linear-gradient(135deg, var(--color-dark-primary), var(--color-dark-secondary));
+  color: var(--color-text-white);
+}
+
+/* HEADER */
+.case-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.case-header h2 {
+  font-size: 32px;
+  margin-bottom: 6px;
+}
+
+.case-header p {
+  font-size: 14px;
+  color: #c7d2fe;
+}
+
+/* VIEW ALL BUTTON */
+.view-all {
+  background: transparent;
+  border: 1px solid var(--color-text-white);
+  color: var(--color-text-white);
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.view-all:hover {
+  background: var(--color-text-white);
+  color: var(--color-dark-primary);
+}
+
+/* GRID */
+.case-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* CARD COMMON */
+.case-card {
+  position: relative;
+  height: 340px;
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform var(--transition-slow);
+}
+
+.case-card:hover {
+  transform: translateY(-8px);
+}
+
+/* TAG */
+.tag {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+/* TITLE */
+.case-card h3 {
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+/* DESCRIPTION */
+.case-card p {
+  font-size: 14px;
+  line-height: var(--line-height-normal);
+  margin-top: 10px;
+}
+
+/* ARROW */
+.arrow-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: 38px;
+  height: 38px;
+  background: var(--color-primary);
+  color: var(--color-text-white);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+}
+
+/* LIGHT CARD */
+.highlight {
+  background: var(--color-bg-white);
+  color: var(--color-dark-primary);
+}
+
+.highlight .arrow-btn {
+  background: var(--color-dark-primary);
+}
+
+/* IMAGE CARDS */
+.image-card {
+  background-size: cover;
+  background-position: center;
+}
+
+.card-1 {
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)),
+    url("https://images.unsplash.com/photo-1556761175-4b46a572b786");
+}
+
+.card-2 {
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)),
+    url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d");
+}
+
+.card-3 {
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)),
+    url("https://images.unsplash.com/photo-1551434678-e076c223a692");
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .case-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .case-section {
+    padding: var(--section-padding-y) var(--section-padding-x);
+  }
+
+  .case-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .case-cards {
+    grid-template-columns: 1fr;
+  }
+}

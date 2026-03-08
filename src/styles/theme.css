@@ -1,0 +1,114 @@
+/* ============================================
+   GLOBAL THEME — Single Source of Truth
+   
+   Change fonts/colors HERE and it applies
+   across the entire application.
+============================================ */
+
+/* -------- GOOGLE FONT IMPORT -------- */
+/* Swap this one line to change the app font globally */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* ======= TYPOGRAPHY ======= */
+  --font-primary: 'Poppins', system-ui, -apple-system, sans-serif;
+
+  --font-mono: 'Fira Code', 'Courier New', monospace;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.7;
+  --line-height-loose: 1.8;
+
+  /* ======= BRAND COLORS ======= */
+  --color-primary: #2563eb;         /* Main blue */
+  --color-primary-dark: #0b5ed7;    /* Darker blue for active states */
+  --color-primary-light: #60a5fa;   /* Light blue for accents */
+  --color-primary-bg: #eef4ff;      /* Very light blue background */
+
+  --color-secondary: #a71e25;       /* Brand red */
+  --color-secondary-light: #ffd2d5; /* Light red/pink */
+
+  --color-accent: #f4b400;          /* Yellow/gold accent */
+  --color-success: #00d084;         /* Green checkmarks */
+
+  /* ======= BRAND ALIASES (used across product pages) ======= */
+  --brand-red: #a71e25;
+  --brand-blue: #0f172a;
+  --brand-accent: #2563eb;
+  --light-bg: #f8fafc;
+  --gold: #d4a853;
+  --gold-light: #f0e1c0;
+
+  /* ======= DARK BACKGROUNDS ======= */
+  --color-dark-primary: #0b1c39;    /* Deepest navy */
+  --color-dark-secondary: #1e3a8a;  /* Navy blue */
+  --color-dark-bg: #0e1324;         /* Footer dark */
+  --color-dark-card: #26336b;       /* Card dark blue */
+
+  /* ======= NEUTRAL COLORS ======= */
+  --color-text-primary: #111827;    /* Main text */
+  --color-text-secondary: #555555;  /* Secondary text */
+  --color-text-muted: #9ca3af;      /* Muted/disabled */
+  --color-text-light: #cbd5f5;      /* Light text on dark bg */
+  --color-text-white: #ffffff;
+
+  --color-bg-white: #ffffff;
+  --color-bg-light: #f8fafc;        /* Light section bg */
+  --color-bg-blue-light: #f4f8ff;   /* Blue-tinted light bg */
+  --color-bg-blue-section: #f5f9ff; /* IT services section */
+  --color-bg-commitment: #eaf3fb;   /* Commitment section */
+
+  --color-border: #eeeeee;
+  --color-border-blue: #dbe6ff;
+  --color-border-light: #cccccc;
+
+  /* ======= SHADOWS ======= */
+  --shadow-sm: 0 6px 15px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 22px 48px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 35px 80px rgba(0, 0, 0, 0.14);
+  --shadow-blue: 0 12px 24px rgba(37, 99, 235, 0.12);
+
+  /* ======= SPACING ======= */
+  --section-padding-y: 80px;
+  --section-padding-x: 60px;
+  --container-max: 1200px;
+  --container-wide: 1400px;
+
+  /* ======= BORDER RADIUS ======= */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 22px;
+  --radius-full: 999px;
+
+  /* ======= TRANSITIONS ======= */
+  --transition-fast: 0.25s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.4s ease;
+
+  /* ======= NAVBAR ======= */
+  --navbar-height: 80px;
+}
+
+/* ======= RESPONSIVE OVERRIDES ======= */
+@media (max-width: 768px) {
+  :root {
+    --section-padding-y: 60px;
+    --section-padding-x: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-padding-y: 50px;
+    --section-padding-x: 16px;
+  }
+}

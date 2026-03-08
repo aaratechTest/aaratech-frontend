@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "jsx": "react-jsx",
+    "strict": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "baseUrl": "src", // <-- VERY IMPORTANT
+    "types": ["vite/client"] // <-- For Vite asset imports
+  },
+  "include": ["src"], // <-- Ensures all src files are checked
+  "exclude": ["node_modules", "dist"] // <-- Exclude build / node_modules
+}

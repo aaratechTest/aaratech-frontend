@@ -1,0 +1,103 @@
+/* ============================================
+   GLOBAL RESET & BASE STYLES
+   
+   This replaces ALL scattered resets from:
+   - App.css (margin/padding/box-sizing reset)
+   - index.css (base styles, link styles, button styles)
+   - navbar.css (duplicate reset)
+   - AboutPage.css (duplicate reset)
+   
+   Import this ONCE in main.tsx after theme.css
+============================================ */
+
+/* -------- RESET -------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* -------- HTML & BODY -------- */
+html,
+body {
+  overflow-x: hidden;
+  line-height: var(--line-height-normal);
+  font-weight: var(--font-weight-regular);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-synthesis: none;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-white);
+}
+
+/* Public pages need padding for the fixed navbar */
+body:has(.public-layout) {
+  padding-top: var(--navbar-height);
+}
+
+#root {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* -------- TYPOGRAPHY BASE -------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+p {
+  font-family: var(--font-primary);
+  line-height: var(--line-height-relaxed);
+}
+
+/* -------- LINKS -------- */
+a {
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition-normal);
+}
+
+/* -------- BUTTONS -------- */
+button {
+  font-family: var(--font-primary);
+  font-size: 1em;
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: all var(--transition-normal);
+}
+
+/* -------- IMAGES -------- */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* -------- LISTS -------- */
+ul, ol {
+  list-style: none;
+}
+
+/* -------- FORM ELEMENTS -------- */
+input,
+textarea,
+select {
+  font-family: var(--font-primary);
+}
+
+/* -------- ADDRESS -------- */
+address {
+  font-style: normal;
+}

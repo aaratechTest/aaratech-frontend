@@ -1,0 +1,809 @@
+/* ================= SCOPE ================= */
+.asm-scope {
+  font-family: var(--font-primary);
+  display: block;
+  width: 100%;
+  background: #ffffff;
+}
+
+.asm-scope * {
+  box-sizing: border-box;
+}
+
+/* ================= HERO ================= */
+.asm-hero {
+  position: relative;
+  padding: 90px 20px 70px;
+  text-align: center;
+  color: #ffffff;
+  background-image: url("../assets/cobol.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.asm-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(11, 28, 57, 0.82),
+    rgba(30, 58, 138, 0.78)
+  );
+  z-index: 0;
+  backdrop-filter: saturate(112%) contrast(104%);
+}
+
+.asm-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.asm-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 22px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+  color: #ffffff;
+}
+
+.asm-hero h1 {
+  font-size: clamp(32px, 4.5vw, 50px);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 18px;
+  letter-spacing: -0.5px;
+}
+
+.asm-hero h1 span {
+  color: #ffd2d5;
+}
+
+.asm-hero-desc {
+  max-width: 760px;
+  margin: 0 auto 32px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #e8ecff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+/* ================= HERO BUTTONS ================= */
+.asm-hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.asm-btn-primary {
+  padding: 15px 36px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--brand-red), #c62828);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(167, 30, 37, 0.4);
+  letter-spacing: 0.3px;
+}
+
+.asm-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(167, 30, 37, 0.5);
+}
+
+.asm-btn-secondary {
+  padding: 15px 36px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.asm-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
+  transform: translateY(-3px);
+}
+
+/* ================= HERO STATS ================= */
+.asm-hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.asm-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.asm-stat strong {
+  font-size: 28px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.asm-stat span {
+  font-size: 12px;
+  color: #c7d2fe;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+/* ================= MAIN SECTION (SIDEBAR + CONTENT) ================= */
+.asm-main-section {
+  background: #f5f9ff;
+  padding: 50px 0 60px;
+}
+
+.asm-main-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 48px;
+  padding: 0 24px;
+  align-items: flex-start;
+}
+
+/* ================= SIDEBAR ================= */
+.asm-sidebar {
+  background: #eef4ff;
+  border-radius: 18px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid #dbe6ff;
+  position: sticky;
+  top: 100px;
+}
+
+.asm-sidebar-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  border: 1px solid #dbe6ff;
+  border-radius: 12px;
+  padding: 16px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f2a5f;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, border 0.25s ease;
+}
+
+.asm-sidebar-btn:hover {
+  background: #f5f8ff;
+}
+
+.asm-sidebar-btn.active {
+  background: #0b5ed7;
+  color: #ffffff;
+  border-color: #0b5ed7;
+}
+
+.asm-sidebar-btn.active svg {
+  color: #ffffff;
+}
+
+/* ================= CONTENT PANEL ================= */
+.asm-content-panel {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 48px 56px;
+  border: 1px solid #dbe6ff;
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.1);
+  min-height: 500px;
+}
+
+/* ================= CONTENT TEXT ================= */
+.asm-content-block h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--brand-blue);
+  margin-bottom: 16px;
+}
+
+.asm-content-block p {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.asm-content-block strong {
+  display: block;
+  margin-top: 28px;
+  margin-bottom: 12px;
+  font-size: 17px;
+  color: #2563eb;
+}
+
+/* ================= CHECKBOX BULLETS ================= */
+.asm-content-block ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+}
+
+.asm-content-block ul li {
+  position: relative;
+  padding-left: 36px;
+  margin-bottom: 14px;
+  font-size: 15px;
+  color: #000;
+  line-height: 1.7;
+}
+
+.asm-content-block ul li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 22px;
+  height: 22px;
+  background: #e8f0ff;
+  border: 1px solid #93b5ff;
+  border-radius: 6px;
+  font-weight: 700;
+  color: #0b5ed7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+/* ================= HIGHLIGHT CARDS (OVERVIEW) ================= */
+.asm-highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 32px 0;
+}
+
+.asm-highlight-card {
+  background: #f8faff;
+  border: 1px solid #dbe6ff;
+  border-radius: 16px;
+  padding: 28px 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.asm-highlight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.15);
+  border-color: #2563eb;
+}
+
+.asm-highlight-card svg {
+  color: #2563eb;
+  margin-bottom: 14px;
+}
+
+.asm-highlight-card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--brand-blue);
+  margin-bottom: 8px;
+}
+
+.asm-highlight-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 0;
+}
+
+/* ================= OVERVIEW IMAGE ================= */
+.asm-overview-image {
+  margin-top: 32px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+}
+
+.asm-overview-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* ================= STEPS GRID (HOW IT WORKS) ================= */
+.asm-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 32px 0;
+}
+
+.asm-step-card {
+  background: #f8faff;
+  border: 1px solid #dbe6ff;
+  border-radius: 16px;
+  padding: 28px 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.asm-step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.15);
+}
+
+.asm-step-number {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2563eb, #1e3a8a);
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.asm-step-card h4 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--brand-blue);
+  margin-bottom: 10px;
+}
+
+.asm-step-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 0;
+}
+
+/* ================= INLINE CTA ================= */
+.asm-cta-inline {
+  margin-top: 40px;
+  padding: 32px;
+  background: linear-gradient(135deg, #0b1c39, #1e3a8a);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.asm-cta-inline p {
+  color: #e8ecff;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* ================= BENEFITS GRID ================= */
+.asm-benefits-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.asm-benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 24px;
+  background: #f8faff;
+  border: 1px solid #dbe6ff;
+  border-radius: 14px;
+  transition: all 0.3s ease;
+}
+
+.asm-benefit-item:hover {
+  border-color: #2563eb;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12);
+}
+
+.asm-benefit-icon {
+  color: #2563eb;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.asm-benefit-item h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--brand-blue);
+  margin-bottom: 6px;
+}
+
+.asm-benefit-item > div > p {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 0;
+}
+
+/* ================= GLOSSARY ================= */
+
+/* ALPHABET BAR */
+.asm-alphabet-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 24px 0 32px;
+  justify-content: center;
+}
+
+.asm-alpha-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid #dbe6ff;
+  background: #ffffff;
+  color: #0f2a5f;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.asm-alpha-btn:hover {
+  background: #e8f0ff;
+  border-color: #2563eb;
+}
+
+.asm-alpha-btn.active {
+  background: #0b5ed7;
+  color: #ffffff;
+  border-color: #0b5ed7;
+  box-shadow: 0 4px 16px rgba(11, 94, 215, 0.3);
+}
+
+.asm-alpha-btn.disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.asm-alpha-btn.disabled:hover {
+  background: #ffffff;
+  border-color: #dbe6ff;
+}
+
+/* GLOSSARY CONTENT */
+.asm-glossary-content {
+  margin-top: 8px;
+}
+
+.asm-glossary-letter-heading {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0b8dab, #2196c4);
+  padding: 12px 20px;
+  border-radius: 10px;
+  margin-bottom: 0;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* INSTRUCTIONS GRID */
+.asm-instructions-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border: 1px solid #dbe6ff;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  overflow: hidden;
+}
+
+.asm-instruction-cell {
+  padding: 14px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-align: center;
+  border-bottom: 1px solid #e8eef8;
+  border-right: 1px solid #e8eef8;
+  background: #ffffff;
+  transition: background 0.2s ease;
+}
+
+.asm-instruction-cell:nth-child(7n) {
+  border-right: none;
+}
+
+.asm-instruction-cell:hover {
+  background: #e8f4ff;
+  color: #0b5ed7;
+}
+
+.asm-no-terms {
+  font-size: 15px;
+  color: #888;
+  font-style: italic;
+}
+
+/* ================= FOOTER CTA ================= */
+.asm-scope .footer-cta-section {
+  background: linear-gradient(90deg, var(--brand-red), var(--brand-blue));
+  padding: 50px 20px;
+  text-align: center;
+  color: #fff;
+  border-radius: 16px;
+  margin: 0 auto;
+  max-width: 1200px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.asm-scope .footer-cta-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.asm-scope .footer-cta-headline {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.asm-scope .footer-cta-subtext {
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 28px;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.asm-footer-cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.asm-scope .footer-cta-btn {
+  background-color: #fff;
+  color: #111;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 14px 36px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.asm-scope .footer-cta-btn:hover {
+  background-color: #f0f0f0;
+  color: var(--brand-red);
+  transform: translateY(-2px);
+}
+
+.asm-scope .footer-cta-btn-outline {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.asm-scope .footer-cta-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Large laptops */
+@media (min-width: 992px) and (max-width: 1600px) {
+  .asm-content-panel {
+    max-height: 80vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #b6ccff transparent;
+  }
+
+  .asm-content-panel::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .asm-content-panel::-webkit-scrollbar-thumb {
+    background-color: #b6ccff;
+    border-radius: 10px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  .asm-main-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .asm-sidebar {
+    position: sticky;
+    top: 80px;
+    z-index: 30;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .asm-sidebar-btn {
+    min-width: 160px;
+    text-align: center;
+    justify-content: center;
+    white-space: nowrap;
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .asm-content-panel {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .asm-highlight-grid,
+  .asm-steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .asm-instructions-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .asm-instruction-cell:nth-child(7n) {
+    border-right: 1px solid #e8eef8;
+  }
+
+  .asm-instruction-cell:nth-child(6n) {
+    border-right: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .asm-hero {
+    padding: 70px 16px 50px;
+  }
+
+  .asm-hero h1 {
+    font-size: 28px;
+  }
+
+  .asm-hero-desc {
+    font-size: 15px;
+  }
+
+  .asm-hero-stats {
+    gap: 24px;
+  }
+
+  .asm-stat strong {
+    font-size: 22px;
+  }
+
+  .asm-content-panel {
+    padding: 32px 24px;
+  }
+
+  .asm-highlight-grid,
+  .asm-steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .asm-alpha-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 13px;
+  }
+
+  .asm-instructions-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .asm-instruction-cell {
+    padding: 12px 8px;
+    font-size: 13px;
+  }
+
+  .asm-instruction-cell:nth-child(7n) {
+    border-right: 1px solid #e8eef8;
+  }
+
+  .asm-instruction-cell:nth-child(5n) {
+    border-right: none;
+  }
+
+  .asm-scope .footer-cta-section {
+    margin: 0 16px;
+    border-radius: 14px;
+  }
+
+  .asm-scope .footer-cta-headline {
+    font-size: 24px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .asm-hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .asm-btn-primary,
+  .asm-btn-secondary {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+
+  .asm-sidebar-btn {
+    min-width: 140px;
+    font-size: 13px;
+    padding: 10px 14px;
+  }
+
+  .asm-alpha-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+    border-radius: 8px;
+  }
+
+  .asm-instructions-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .asm-instruction-cell:nth-child(5n) {
+    border-right: 1px solid #e8eef8;
+  }
+
+  .asm-instruction-cell:nth-child(3n) {
+    border-right: none;
+  }
+
+  .asm-instruction-cell {
+    padding: 10px 6px;
+    font-size: 12px;
+  }
+
+  .asm-footer-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .asm-scope .footer-cta-btn {
+    width: 80%;
+    text-align: center;
+  }
+}

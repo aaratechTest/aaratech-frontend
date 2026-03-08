@@ -1,0 +1,233 @@
+/* ============================================
+   CLIENTS SECTION (Home Page)
+   Left: content text | Right: image carousel
+   USES: theme.css variables throughout
+============================================ */
+
+.clients-section {
+  padding: var(--section-padding-y) var(--section-padding-x);
+  background: var(--color-bg-white);
+  overflow: hidden;
+}
+
+.clients-inner {
+  max-width: var(--container-wide);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.clients-inner--center {
+  grid-template-columns: 1fr;
+  max-width: 700px;
+  text-align: center;
+}
+
+.clients-inner--center .clients-content {
+  align-items: center;
+}
+
+.clients-inner--center .clients-stats {
+  justify-content: center;
+}
+
+/* ─── LEFT CONTENT ─── */
+
+.clients-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.clients-content .section-label {
+  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.clients-content h2 {
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-dark-primary);
+  line-height: var(--line-height-tight);
+}
+
+.clients-content p {
+  font-size: 16px;
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-secondary);
+}
+
+.clients-placeholder {
+  font-style: italic;
+  color: var(--color-text-muted) !important;
+  font-size: 14px !important;
+}
+
+.clients-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 12px;
+}
+
+.clients-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.clients-stat .stat-value {
+  font-size: 36px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.clients-stat .stat-label {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin-top: 6px;
+}
+
+/* ─── RIGHT CAROUSEL ─── */
+
+.clients-carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  padding: 10px 0;
+}
+
+/* Fade edges */
+.clients-carousel::before,
+.clients-carousel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.clients-carousel::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-bg-white), transparent);
+}
+
+.clients-carousel::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-bg-white), transparent);
+}
+
+.clients-track {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.clients-row {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: scrollClients 25s linear infinite;
+}
+
+.clients-row--reverse {
+  animation-name: scrollClientsReverse;
+}
+
+.clients-row:hover {
+  animation-play-state: paused;
+}
+
+/* ─── CLIENT LOGO CARD ─── */
+
+.client-logo-card {
+  flex-shrink: 0;
+  width: 150px;
+  height: 85px;
+  background: var(--color-bg-light);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-normal);
+}
+
+.client-logo-card:hover {
+  box-shadow: var(--shadow-sm);
+  border-color: var(--color-primary-light);
+  transform: translateY(-3px);
+}
+
+.client-logo-card img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(80%);
+  opacity: 0.75;
+  transition: all var(--transition-normal);
+}
+
+.client-logo-card:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* ─── KEYFRAMES ─── */
+
+@keyframes scrollClients {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollClientsReverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* ─── RESPONSIVE ─── */
+
+@media (max-width: 1024px) {
+  .clients-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .clients-content {
+    text-align: center;
+    align-items: center;
+  }
+
+  .clients-stats {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .clients-stats {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .client-logo-card {
+    width: 120px;
+    height: 70px;
+    padding: 10px;
+  }
+}

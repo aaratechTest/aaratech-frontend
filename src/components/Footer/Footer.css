@@ -1,0 +1,201 @@
+/* ============================================
+   FOOTER
+   
+   REMOVED: hardcoded font-family declaration
+   (now inherits from body via reset.css → theme.css)
+   
+   USES: theme.css variables for colors, shadows
+============================================ */
+
+/* ===============================
+   FOOTER BASE
+================================ */
+.footer {
+  background: linear-gradient(180deg, #0b0f1a 0%, var(--color-dark-bg) 100%);
+  color: #d1d5db;
+  padding-top: 90px;
+  /* font-family REMOVED — inherits var(--font-primary) from body */
+  margin-top: 90px;
+}
+
+/* ===============================
+   MAIN GRID LAYOUT
+================================ */
+.footer-container {
+  max-width: var(--container-max);
+  margin: auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 56px;
+}
+
+/* ===============================
+   COLUMN STRUCTURE
+================================ */
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-section {
+  margin-top: 28px;
+}
+
+/* ===============================
+   TITLES
+================================ */
+.footer-title {
+  color: var(--color-primary-light);
+  font-size: 13px;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+/* ===============================
+   TEXT STYLES
+================================ */
+.footer-text,
+.footer-column p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--color-text-light);
+}
+
+/* ===============================
+   ICON + TEXT ROW
+================================ */
+.footer-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.footer-icon {
+  color: var(--color-primary-light);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+/* ===============================
+   LINKS
+================================ */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: var(--color-text-light);
+  position: relative;
+  transition: color var(--transition-normal);
+}
+
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: var(--color-primary-light);
+  transition: width var(--transition-slow);
+}
+
+.footer-links a:hover {
+  color: var(--color-primary-light);
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+/* ===============================
+   SOCIAL ICONS
+================================ */
+.footer-social {
+  display: flex;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.footer-social a {
+  display: inline-flex;
+}
+
+.footer-social svg {
+  color: var(--color-text-muted);
+  transition:
+    transform var(--transition-slow),
+    color var(--transition-slow);
+}
+
+.footer-social svg:hover {
+  color: var(--color-primary-light);
+  transform: translateY(-5px) scale(1.12);
+}
+
+/* ===============================
+   BOTTOM BAR
+================================ */
+.footer-bottom {
+  max-width: var(--container-max);
+  margin: 70px auto 0;
+  padding: 28px 24px;
+  border-top: 1px solid rgba(148, 163, 184, 0.25);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.footer-policy {
+  display: flex;
+  gap: 26px;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 1024px) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer {
+    padding-top: 70px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-item {
+    justify-content: center;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 18px;
+    text-align: center;
+  }
+}

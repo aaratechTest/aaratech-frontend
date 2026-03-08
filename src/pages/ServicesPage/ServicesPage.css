@@ -1,0 +1,32 @@
+/* ================= SERVICES PAGE HERO ================= */
+.services-hero {
+  position: relative;
+  padding: 80px 20px 64px;
+  text-align: center;
+  color: var(--color-text-white);
+  background-image: url("../assets/home-hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* Content above overlay */
+.services-hero h1,
+.services-hero .hero-description,
+.services-hero .hero-tabs-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+/* Heading */
+.services-hero h1 {
+  font-size: clamp(32px, 4vw, 46px);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.4px;
+  margin-bottom: 14px;
+}
+
+.services-hero h1 span {
+  color: var(--color-secondary-light);
+}

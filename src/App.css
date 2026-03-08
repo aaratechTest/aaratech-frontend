@@ -1,0 +1,12 @@
+/* ============================================
+   APP.CSS — App-Level Layout Only
+   
+   All resets moved to styles/reset.css
+   All theme variables in styles/theme.css
+   
+   This file is for app-shell specific styles only.
+============================================ */
+
+/* Currently empty — reset.css handles body padding-top 
+   and all base styles. Add app-shell specific styles 
+   here if needed (e.g., page transition animations). */

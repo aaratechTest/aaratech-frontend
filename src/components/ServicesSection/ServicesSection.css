@@ -1,0 +1,107 @@
+/* ============================================
+   SERVICES SECTION (Home Page)
+   
+   USES: theme.css variables throughout
+============================================ */
+
+.services-section {
+  padding: var(--section-padding-y) var(--section-padding-x);
+  background: var(--color-bg-light);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 50px;
+  color: var(--color-dark-primary);
+}
+
+/* GRID */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  justify-content: center;
+}
+
+/* CARD */
+.service-card {
+  background: var(--color-bg-white);
+  border-radius: 16px;
+  padding: 32px 28px;
+  min-height: 320px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-slow);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: var(--color-dark-primary);
+}
+
+/* ICON */
+.service-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: var(--color-primary);
+  transition:
+    transform var(--transition-normal),
+    color var(--transition-normal);
+}
+
+/* TITLE */
+.service-title {
+  font-size: 22px;
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: 14px;
+  transition: color var(--transition-normal);
+}
+
+/* DESCRIPTION */
+.service-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  transition: color var(--transition-normal);
+}
+
+/* LINK */
+.service-link {
+  margin-top: 20px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color var(--transition-normal);
+}
+
+.service-link span {
+  transition: transform var(--transition-normal);
+}
+
+/* HOVER EFFECT */
+.service-card:hover {
+  background: linear-gradient(135deg, var(--color-primary), #4f86ff);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  color: var(--color-text-white);
+}
+
+.service-card:hover .service-icon,
+.service-card:hover .service-title,
+.service-card:hover .service-desc,
+.service-card:hover .service-link {
+  color: var(--color-text-white);
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1);
+}
+
+.service-card:hover .service-link span {
+  transform: translateX(6px);
+}
