@@ -394,6 +394,69 @@ export const defaultContent: Record<string, { sections: Record<string, any> }> =
     },
   },
 
+  culture: {
+    sections: {
+      hero: {
+        heading: "Our Work Culture",
+        description: "At Aara Tech, we foster an open, amiable, and innovation-driven culture. Our environment nurtures creativity, collaboration, and continuous growth — empowering every team member to do their best work and build a rewarding career.",
+        image: "",
+      },
+      values: {
+        heading: "Our Core Values",
+        description: "These values guide everything we do — from how we work together to how we serve our clients.",
+        items: [
+          { title: "Innovation", description: "We encourage creative thinking and embrace new technologies to solve complex challenges. Our teams are empowered to experiment, iterate, and push boundaries.", image: "" },
+          { title: "Collaboration", description: "We believe the best solutions emerge when diverse minds work together. Open communication and teamwork are at the heart of every project we deliver.", image: "" },
+          { title: "Integrity", description: "We operate with transparency, honesty, and accountability in all our interactions — with clients, partners, and each other.", image: "" },
+          { title: "Excellence", description: "We set high standards for quality and performance. Every line of code, every delivery, and every interaction reflects our commitment to excellence.", image: "" },
+        ],
+      },
+      lifeAtAara: {
+        heading: "Life at Aara Tech",
+        description: "We are proud to boast a talented and enthusiastic team of professionals who are driven to be successful by ensuring their clients succeed. Our open culture creates an environment where employees can leverage their skills and interests to build rewarding careers.",
+        highlights: [
+          { title: "Open Door Policy", description: "Flat hierarchy with accessible leadership. Every voice matters and every idea is heard." },
+          { title: "Team Events & Celebrations", description: "Regular team outings, festival celebrations, hackathons, and knowledge-sharing sessions keep the energy high." },
+          { title: "Work-Life Balance", description: "Flexible work arrangements and a supportive environment ensure our team can thrive both professionally and personally." },
+          { title: "Diverse & Inclusive", description: "We celebrate diversity and create an inclusive environment where everyone feels welcomed and valued." },
+        ],
+      },
+      stats: {
+        items: [
+          { value: "14+", label: "Years of Excellence" },
+          { value: "200+", label: "Team Members" },
+          { value: "4", label: "Global Offices" },
+          { value: "95%", label: "Employee Satisfaction" },
+        ],
+      },
+      growth: {
+        heading: "Growth & Learning",
+        description: "We invest in our people because their growth drives our success. Aara Tech provides an environment where employees can leverage their skills and interests and build rewarding careers, with great emphasis on aligning career goals with customer needs.",
+        items: [
+          { title: "Continuous Learning", description: "Access to training programs, certifications, and learning platforms to keep your skills sharp and relevant." },
+          { title: "Mentorship Programs", description: "Guidance from experienced leaders who help you navigate your career path and accelerate your professional development." },
+          { title: "Career Progression", description: "Clear growth paths with regular performance reviews, promotions, and opportunities to take on new challenges." },
+          { title: "Cross-Functional Exposure", description: "Work across different domains, technologies, and client projects to broaden your expertise and perspective." },
+        ],
+      },
+      whyJoin: {
+        heading: "Why Join Aara Tech?",
+        items: [
+          { title: "Impactful Work", description: "Work on cutting-edge projects for leading banks and enterprises across the globe." },
+          { title: "Collaborative Environment", description: "Join a team that values open communication, mutual respect, and collective success." },
+          { title: "Competitive Benefits", description: "Attractive compensation packages, health insurance, and performance-based rewards." },
+          { title: "Innovation First", description: "Be part of a culture that encourages experimentation and rewards creative problem-solving." },
+          { title: "Global Exposure", description: "Work with teams and clients across India, Singapore, USA, and Malaysia." },
+          { title: "Employee Well-being", description: "Programs and initiatives that prioritize your physical, mental, and professional well-being." },
+        ],
+      },
+      cta: {
+        heading: "Ready to join our team?",
+        buttonText: "VIEW OPENINGS",
+      },
+    },
+  },
+
   footer: {
     sections: {
       offices: {
@@ -437,61 +500,42 @@ export const defaultContent: Record<string, { sections: Record<string, any> }> =
 
   "assembler-cobol": {
     sections: {
-      overview: {
-        badge: "Flagship Product",
-        heading: "Assembler to COBOL Conversion Tool",
-        description: "Our proprietary conversion tool automates the migration of Assembler programs to COBOL, preserving business logic while modernizing your codebase for easier maintenance and future development.",
-        stats: [
-          { value: "500+", label: "Programs Converted" },
-          { value: "95%+", label: "Auto-Conversion Rate" },
-          { value: "14+", label: "Years Expertise" },
-          { value: "30M+", label: "Lines Migrated" },
-        ],
-      },
-      howItWorks: {
-        heading: "How It Works",
-        steps: [
-          { step: "1", title: "Assess", description: "Analyze existing Assembler codebase and identify conversion candidates." },
-          { step: "2", title: "POC & Design", description: "Run proof of concept on sample programs and design conversion strategy." },
-          { step: "3", title: "Convert", description: "Execute automated conversion using our proprietary tool." },
-          { step: "4", title: "Test & Validate", description: "Comprehensive testing to ensure functional equivalence." },
-          { step: "5", title: "Deploy", description: "Deploy converted programs to production environment." },
-          { step: "6", title: "Support", description: "Ongoing support and optimization post-deployment." },
-        ],
-      },
-      benefits: {
-        heading: "Benefits",
-        items: [
-          { title: "Reduced Maintenance Costs", description: "COBOL developers are more available and affordable than Assembler specialists." },
-          { title: "Improved Code Readability", description: "COBOL code is self-documenting and easier to understand." },
-          { title: "Modern Integration", description: "COBOL integrates better with modern tools and frameworks." },
-          { title: "Risk Mitigation", description: "Reduce dependency on aging Assembler expertise." },
-          { title: "Faster Development Cycles", description: "Make changes and enhancements more quickly in COBOL." },
-          { title: "Larger Talent Pool", description: "Access a broader pool of COBOL developers worldwide." },
-        ],
-      },
-      useCases: {
-        heading: "Use Cases",
-        industries: [
-          { title: "Banking & Financial Services", description: "Core banking system modernization." },
-          { title: "Insurance", description: "Policy management system conversion." },
-          { title: "Government & Public Sector", description: "Legacy government system upgrades." },
-          { title: "Telecommunications", description: "Billing and network management modernization." },
-        ],
-      },
-      whyAara: {
-        heading: "Why Aara Tech",
-        items: [
-          { title: "Proven Track Record", description: "500+ successful program conversions." },
-          { title: "Deep Mainframe Expertise", description: "14+ years of mainframe modernization experience." },
-          { title: "Proprietary Tooling", description: "Purpose-built conversion engine with 95%+ automation." },
-          { title: "End-to-End Support", description: "From assessment through production deployment." },
-        ],
-      },
-      cta: {
-        heading: "Ready to modernize your Assembler codebase?",
-        buttonPrimary: "REQUEST A DEMO",
-        buttonSecondary: "EXPERIENCE THE TOOL",
+      tabContent: {
+        "mainframe-legacy": {
+          heading: "Mainframe Legacy",
+          content: "<p>Content coming soon. This section can be updated from the admin panel.</p>",
+        },
+        "our-tool": {
+          heading: "Our Tool",
+          content: "<p>Content coming soon. This section can be updated from the admin panel.</p>",
+        },
+        "advantages": {
+          heading: "Advantages",
+          content: "<p>Content coming soon. This section can be updated from the admin panel.</p>",
+        },
+        "limitations": {
+          heading: "Limitations",
+          content: "<p>Content coming soon. This section can be updated from the admin panel.</p>",
+        },
+        "migration-methodology": {
+          "strategy": {
+            content: `<div style="display:flex;gap:20px;"><div style="flex:1;font-size:13px;line-height:1.8;color:#333;"><p><b>Program Assessment:</b> As a preliminary step, We extract all mnemonics used currently along with total lines of the code from assembler program</p><p><b>Tool Coverage Analysis:</b> Identify percentage coverage by the tool both in terms of lines of code and mnemonics</p><p><b>Proof of Concept (POC):</b> Identify and segregate a set of programs to do POC</p><p><b>Issue Resolution:</b> Address any identified issues during the POC.</p><p><b>Edge cases:</b> Identify scenarios which cannot be handled in Cobol and decide next steps. This feedback will be shared with the tool developers for future revisions.</p><p><b>Testing in a Safe Environment:</b> Perform End to End testing of programs converted in POC</p><p><b>Program Handover:</b> Provide the converted programs to the clients, along with reports and test result comparison documents.</p><p><b>User Acceptance Testing (UAT):</b> Allow the client's user community to thoroughly test the programs and provide signoff on POC.</p><p><b>Post-Implementation Support:</b> Once signed off, strategies to proceed with the full-scale conversion of all programs.</p></div><div style="flex:1;text-align:center;"><img src="/assets/strategy.jpg" style="max-width:100%;border-radius:6px;" alt="Strategy"></div></div>`,
+          },
+          "tool-usage": {
+            content: `<div style="font-size:13px;line-height:1.8;color:#333;"><p>&#10148; Identified programs are to be downloaded as text files into a secure folder on a windows machine.</p><p>&#10148; Source and target folders are updated in tool.</p><p>&#10148; Relevant global parameters for conversion are updated one time in the tool.</p><p>&#10148; Call parameters to be updated if the program being converted is a called program.</p><p>&#10148; Any missing parameters identified during tool run time are to be provided like Lrecl, Recfm.</p><p>&#10148; Click on the run button to generate the code.</p><p>&#10148; Outputs are created in folders with name of the program as folder name.</p><p>&#10148; Review the error log file for all info/warnings/errors in the destination folder.</p><p>&#10148; Make relevant calls on the fixes to be made or ignored.</p><p>&#10148; Upload the converted programs to Mainframes.</p><p>&#10148; Delete the corresponding folders.</p></div>`,
+          },
+          "data-security": {
+            content: `<div style="font-size:13px;line-height:1.8;color:#333;"><p>&#10148; AaraTech shall be signing all relevant NDA's, data security compliance agreements as may be needed by clients.</p><p>&#10148; AaraTech shall follow all security restrictions imposed by the client for securing their IP.</p></div>`,
+          },
+        },
+        "expectation-from-clients": {
+          heading: "Expectation from Clients",
+          content: "<p>Content coming soon. This section can be updated from the admin panel.</p>",
+        },
+        "performance": {
+          heading: "Performance",
+          content: "<p>Content coming soon. This section can be updated from the admin panel.</p>",
+        },
       },
     },
   },

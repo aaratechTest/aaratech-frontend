@@ -7,6 +7,7 @@ import ContentEditorPage from "../pages/Admin/ContentEditorPage/ContentEditorPag
 import MenuBuilderPage from "../pages/Admin/MenuBuilderPage/MenuBuilderPage";
 import GalleryPage from "../pages/Admin/GalleryPage/GalleryPage";
 import AdminBlogPage from "../pages/Admin/BlogPage/AdminBlogPage";
+import AdminEventsPage from "../pages/Admin/EventsPage/AdminEventsPage";
 import SettingsPage from "../pages/Admin/SettingsPage/SettingsPage";
 
 export interface AdminRoute {
@@ -21,6 +22,7 @@ export const adminRoutes: AdminRoute[] = [
   { path: "menu", element: <MenuBuilderPage /> },
   { path: "gallery", element: <GalleryPage /> },
   { path: "blog", element: <AdminBlogPage /> },
+  { path: "events", element: <AdminEventsPage /> },
   { path: "manage-admins", element: <ManageAdminsPage /> },
   { path: "profile", element: <ProfilePage /> },
   { path: "settings", element: <SettingsPage /> },

@@ -175,17 +175,27 @@ export interface PageListItem {
   updatedAt: number;
 }
 
-// ── Menu ──
+// ── Menu (hierarchical) ──
 
-export interface MenuItem {
+export interface MenuChild {
   id: string;
   label: string;
   url: string;
   order: number;
   visible: boolean;
+  openInNewTab?: boolean;
 }
 
-export interface Menu {
-  items: MenuItem[];
+export interface MenuGroup {
+  id: string;
+  label: string;
+  url: string;
+  order: number;
+  visible: boolean;
+  children: MenuChild[];
+}
+
+export interface HierarchicalMenu {
+  groups: MenuGroup[];
   updatedAt?: number;
 }

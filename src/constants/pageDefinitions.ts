@@ -755,18 +755,130 @@ export const pageDefinitions: PageDef[] = [
   {
     slug: "assembler-cobol",
     title: "Assembler COBOL",
-    description: "Overview, Key Features, How It Works, Benefits, Use Cases, Why Aara, Glossary",
+    description: "Tabbed content: Mainframe Legacy, Our Tool, Advantages, Limitations, Methodology, Expectations, Performance",
     icon: "Code",
     sections: [
       {
-        key: "overview",
-        label: "Overview",
+        key: "tabContent.mainframe-legacy",
+        label: "Mainframe Legacy",
         fields: [
-          { key: "badge", label: "Badge", type: "text" },
+          { key: "content", label: "Content (HTML)", type: "textarea" },
+        ],
+      },
+      {
+        key: "tabContent.our-tool",
+        label: "Our Tool",
+        fields: [
+          { key: "content", label: "Content (HTML)", type: "textarea" },
+        ],
+      },
+      {
+        key: "tabContent.advantages",
+        label: "Advantages",
+        fields: [
+          { key: "content", label: "Content (HTML)", type: "textarea" },
+        ],
+      },
+      {
+        key: "tabContent.limitations",
+        label: "Limitations",
+        fields: [
+          { key: "content", label: "Content (HTML)", type: "textarea" },
+        ],
+      },
+      {
+        key: "tabContent.migration-methodology.strategy",
+        label: "Migration Methodology - Strategy",
+        fields: [
+          { key: "content", label: "Content (HTML)", type: "textarea" },
+        ],
+      },
+      {
+        key: "tabContent.migration-methodology.tool-usage",
+        label: "Migration Methodology - Tool Usage",
+        fields: [
+          { key: "content", label: "Content (HTML)", type: "textarea" },
+        ],
+      },
+      {
+        key: "tabContent.migration-methodology.data-security",
+        label: "Migration Methodology - Data Security",
+        fields: [
+          { key: "content", label: "Content (HTML)", type: "textarea" },
+        ],
+      },
+      {
+        key: "tabContent.expectation-from-clients",
+        label: "Expectation from Clients",
+        fields: [
+          { key: "content", label: "Content (HTML)", type: "textarea" },
+        ],
+      },
+      {
+        key: "tabContent.performance",
+        label: "Performance",
+        fields: [
+          { key: "content", label: "Content (HTML)", type: "textarea" },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "culture",
+    title: "Culture",
+    description: "Hero, Core Values, Life at Aara, Growth & Learning, Why Join Us, CTA",
+    icon: "Heart",
+    sections: [
+      {
+        key: "hero",
+        label: "Hero Section",
+        fields: [
+          { key: "heading", label: "Heading", type: "text" },
+          { key: "description", label: "Description", type: "textarea" },
+          { key: "image", label: "Hero Image", type: "image" },
+        ],
+      },
+      {
+        key: "values",
+        label: "Core Values",
+        fields: [
+          { key: "heading", label: "Section Heading", type: "text" },
+          { key: "description", label: "Section Description", type: "textarea" },
+          {
+            key: "items",
+            label: "Values",
+            type: "items",
+            subFields: [
+              { key: "title", label: "Title", type: "text" },
+              { key: "description", label: "Description", type: "textarea" },
+              { key: "image", label: "Image", type: "image" },
+            ],
+          },
+        ],
+      },
+      {
+        key: "lifeAtAara",
+        label: "Life at Aara Tech",
+        fields: [
           { key: "heading", label: "Heading", type: "text" },
           { key: "description", label: "Description", type: "textarea" },
           {
-            key: "stats",
+            key: "highlights",
+            label: "Highlights",
+            type: "items",
+            subFields: [
+              { key: "title", label: "Title", type: "text" },
+              { key: "description", label: "Description", type: "textarea" },
+            ],
+          },
+        ],
+      },
+      {
+        key: "stats",
+        label: "Culture Stats",
+        fields: [
+          {
+            key: "items",
             label: "Stats",
             type: "items",
             subFields: [
@@ -777,30 +889,14 @@ export const pageDefinitions: PageDef[] = [
         ],
       },
       {
-        key: "howItWorks",
-        label: "How It Works",
+        key: "growth",
+        label: "Growth & Learning",
         fields: [
           { key: "heading", label: "Heading", type: "text" },
-          {
-            key: "steps",
-            label: "Steps",
-            type: "items",
-            subFields: [
-              { key: "step", label: "Step Number", type: "text" },
-              { key: "title", label: "Title", type: "text" },
-              { key: "description", label: "Description", type: "textarea" },
-            ],
-          },
-        ],
-      },
-      {
-        key: "benefits",
-        label: "Benefits",
-        fields: [
-          { key: "heading", label: "Heading", type: "text" },
+          { key: "description", label: "Description", type: "textarea" },
           {
             key: "items",
-            label: "Benefits",
+            label: "Growth Areas",
             type: "items",
             subFields: [
               { key: "title", label: "Title", type: "text" },
@@ -810,24 +906,8 @@ export const pageDefinitions: PageDef[] = [
         ],
       },
       {
-        key: "useCases",
-        label: "Use Cases",
-        fields: [
-          { key: "heading", label: "Heading", type: "text" },
-          {
-            key: "industries",
-            label: "Industries",
-            type: "items",
-            subFields: [
-              { key: "title", label: "Title", type: "text" },
-              { key: "description", label: "Description", type: "textarea" },
-            ],
-          },
-        ],
-      },
-      {
-        key: "whyAara",
-        label: "Why Aara Tech",
+        key: "whyJoin",
+        label: "Why Join Us",
         fields: [
           { key: "heading", label: "Heading", type: "text" },
           {
@@ -846,8 +926,7 @@ export const pageDefinitions: PageDef[] = [
         label: "Call to Action",
         fields: [
           { key: "heading", label: "Heading", type: "text" },
-          { key: "buttonPrimary", label: "Primary Button", type: "text" },
-          { key: "buttonSecondary", label: "Secondary Button", type: "text" },
+          { key: "buttonText", label: "Button Text", type: "text" },
         ],
       },
     ],

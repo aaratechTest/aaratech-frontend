@@ -100,6 +100,19 @@ export const SERVICES = {
 } as const;
 
 // ─────────────────────────────────────────────
+//  CULTURE PAGE
+// ─────────────────────────────────────────────
+import cultureCollaboration from "../assets/Collaboration.png";
+import cultureInnovation from "../assets/innovation.png";
+import culturePeople from "../assets/people.png";
+import cultureQuality from "../assets/quality.png";
+
+export const CULTURE = {
+  hero: culturePeople,
+  values: [cultureInnovation, cultureCollaboration, cultureQuality, culturePeople],
+} as const;
+
+// ─────────────────────────────────────────────
 //  INDUSTRIES PAGE
 //  (uses SERVICES.heroImage for the shared img)
 // ─────────────────────────────────────────────

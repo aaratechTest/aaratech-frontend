@@ -10,8 +10,11 @@ import LeasingPage from "../pages/Leasing/LeasingPage";
 import SdbManagement from "../pages/SdbManagement/SdbManagement";
 import MobileWalletPage from "../pages/MobileWallet/MobileWalletPage";
 import AssemblerCoboltPage from "../pages/AssemblerCobolt/AssemblerCoboltPage";
+import CulturePage from "../pages/CulturePage/CulturePage";
 import BlogListPage from "../pages/BlogPage/BlogListPage";
 import BlogDetailPage from "../pages/BlogPage/BlogDetailPage";
+import EventListPage from "../pages/EventsPage/EventListPage";
+import EventDetailPage from "../pages/EventsPage/EventDetailPage";
 
 export interface AppRoute {
   path: string;
@@ -29,7 +32,10 @@ export const routes: AppRoute[] = [
   { path: "/sdb-management", element: <SdbManagement /> },
   { path: "/mobile-wallet", element: <MobileWalletPage /> },
   { path: "/assembler-cobol", element: <AssemblerCoboltPage /> },
+  { path: "/culture", element: <CulturePage /> },
   { path: "/blog", element: <BlogListPage /> },
   { path: "/blog/:slug", element: <BlogDetailPage /> },
+  { path: "/events", element: <EventListPage /> },
+  { path: "/events/:slug", element: <EventDetailPage /> },
   { path: "*", element: <NotFoundPage /> },
 ];

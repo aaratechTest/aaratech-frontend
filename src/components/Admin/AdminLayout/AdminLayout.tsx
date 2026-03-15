@@ -2,7 +2,7 @@ import "./AdminLayout.css";
 import { useState } from "react";
 import { Outlet, NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../../contexts/AuthContext";
-import { LayoutDashboard, FileText, Settings, LogOut, Users, UserCircle, Menu, ImageIcon, BookOpen } from "lucide-react";
+import { LayoutDashboard, FileText, Settings, LogOut, Users, UserCircle, Menu, ImageIcon, BookOpen, Calendar } from "lucide-react";
 import ConfirmDialog from "../../../shared/ConfirmDialog/ConfirmDialog";
 
 export default function AdminLayout() {
@@ -30,7 +30,7 @@ export default function AdminLayout() {
           </NavLink>
           <NavLink to="/admin/content" className="admin-sidebar__link">
             <FileText size={20} />
-            <span>Content</span>
+            <span>Pages</span>
           </NavLink>
           <NavLink to="/admin/menu" className="admin-sidebar__link">
             <Menu size={20} />
@@ -43,6 +43,10 @@ export default function AdminLayout() {
           <NavLink to="/admin/blog" className="admin-sidebar__link">
             <BookOpen size={20} />
             <span>Blog</span>
+          </NavLink>
+          <NavLink to="/admin/events" className="admin-sidebar__link">
+            <Calendar size={20} />
+            <span>Events</span>
           </NavLink>
           <NavLink to="/admin/settings" className="admin-sidebar__link">
             <Settings size={20} />

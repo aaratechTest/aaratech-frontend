@@ -2,6 +2,8 @@ import { apiRequest } from "./api";
 
 export interface SiteSettings {
   whatsappNumber?: string;
+  privacyPolicyUrl?: string;
+  openingsUrl?: string;
 }
 
 interface MessageResponse {

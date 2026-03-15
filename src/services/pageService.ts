@@ -1,5 +1,5 @@
 import { apiRequest, BASE_URL } from "./api";
-import type { Page, PageListItem, Menu, Block } from "../types/page";
+import type { Page, PageListItem, HierarchicalMenu, MenuGroup, Block } from "../types/page";
 
 interface MessageResponse {
   message: string;
@@ -69,14 +69,20 @@ export async function seedPages(): Promise<{ message: string; created: number; s
 
 // ── Menu ──
 
-export async function getMenu(): Promise<Menu> {
-  return apiRequest<Menu>("/menu");
+export async function getMenu(): Promise<HierarchicalMenu> {
+  return apiRequest<HierarchicalMenu>("/menu");
 }
 
-export async function updateMenu(items: Menu["items"]): Promise<MessageResponse> {
+export async function updateMenu(groups: MenuGroup[]): Promise<MessageResponse> {
   return apiRequest<MessageResponse>("/menu", {
     method: "PUT",
-    body: { items },
+    body: { groups },
+  });
+}
+
+export async function seedMenu(): Promise<{ message: string; groupCount: number }> {
+  return apiRequest<{ message: string; groupCount: number }>("/menu/seed", {
+    method: "POST",
   });
 }
 

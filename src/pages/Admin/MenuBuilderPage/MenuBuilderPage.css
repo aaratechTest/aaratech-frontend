@@ -71,6 +71,32 @@
   cursor: not-allowed;
 }
 
+.menu-builder__seed-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--color-bg-white);
+  color: var(--color-text-secondary);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-primary);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.menu-builder__seed-btn:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.menu-builder__seed-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .menu-builder__loading {
   text-align: center;
   padding: 48px;
@@ -91,26 +117,110 @@
 .menu-builder__list {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 12px;
 }
 
-/* Menu Item */
-.menu-item {
+/* ── Group Section ── */
+.menu-group {
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.menu-group__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 16px;
+  background: var(--color-bg-light);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.menu-group__collapse {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+}
+
+.menu-group__collapse:hover {
+  background: var(--color-border);
+  color: var(--color-text-primary);
+}
+
+.menu-group__info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.menu-group__label {
+  font-weight: var(--font-weight-bold);
+  font-size: 0.95rem;
+  color: var(--color-text-primary);
+}
+
+.menu-group__count {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  background: var(--color-bg-white);
+  padding: 2px 8px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+}
+
+.menu-group__edit-fields {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.menu-group__children {
+  padding: 8px 12px 12px 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menu-group__empty {
+  padding: 12px 16px;
+  color: var(--color-text-muted);
+  font-size: 0.83rem;
+  font-style: italic;
+}
+
+/* ── Child Item ── */
+.menu-child {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 12px 16px;
+  padding: 10px 14px;
   background: var(--color-bg-white);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   transition: box-shadow 0.15s;
 }
 
-.menu-item:hover {
+.menu-child:hover {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-.menu-item__drag {
+.menu-child--overlay {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  border-color: var(--color-primary);
+}
+
+.menu-child__drag {
   display: flex;
   align-items: center;
   cursor: grab;
@@ -118,10 +228,37 @@
   padding: 2px;
 }
 
-.menu-item__drag:active {
+.menu-child__drag:active {
   cursor: grabbing;
 }
 
+.menu-child__edit-fields {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.menu-child__checkbox {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.menu-child__checkbox input[type="checkbox"] {
+  margin: 0;
+  cursor: pointer;
+}
+
+.menu-child__ext-icon {
+  color: var(--color-text-muted);
+}
+
+/* ── Shared Item Styles ── */
 .menu-item__info {
   flex: 1;
   display: flex;
@@ -183,13 +320,6 @@
 }
 
 /* Edit mode */
-.menu-item__edit-fields {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex: 1;
-}
-
 .menu-item__input {
   padding: 6px 10px;
   border: 1.5px solid var(--color-border);
@@ -216,13 +346,25 @@
     gap: 16px;
   }
 
+  .menu-builder__header-actions {
+    flex-wrap: wrap;
+  }
+
   .menu-item__info {
     flex-direction: column;
     align-items: flex-start;
     gap: 4px;
   }
 
-  .menu-item__edit-fields {
+  .menu-child__edit-fields {
+    flex-wrap: wrap;
+  }
+
+  .menu-group__children {
+    padding-left: 20px;
+  }
+
+  .menu-group__edit-fields {
     flex-wrap: wrap;
   }
 }

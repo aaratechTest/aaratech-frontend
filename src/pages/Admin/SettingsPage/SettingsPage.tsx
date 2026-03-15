@@ -5,6 +5,8 @@ import "./SettingsPage.css";
 
 export default function SettingsPage() {
   const [whatsappNumber, setWhatsappNumber] = useState("");
+  const [privacyPolicyUrl, setPrivacyPolicyUrl] = useState("");
+  const [openingsUrl, setOpeningsUrl] = useState("");
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [success, setSuccess] = useState("");
@@ -12,7 +14,11 @@ export default function SettingsPage() {
 
   useEffect(() => {
     getSettings()
-      .then((s) => setWhatsappNumber(s.whatsappNumber || ""))
+      .then((s) => {
+        setWhatsappNumber(s.whatsappNumber || "");
+        setPrivacyPolicyUrl(s.privacyPolicyUrl || "");
+        setOpeningsUrl(s.openingsUrl || "");
+      })
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
   }, []);
@@ -24,7 +30,7 @@ export default function SettingsPage() {
     setError("");
 
     try {
-      await updateSettings({ whatsappNumber });
+      await updateSettings({ whatsappNumber, privacyPolicyUrl, openingsUrl });
       setSuccess("Settings saved successfully");
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Failed to save settings");
@@ -56,6 +62,34 @@ export default function SettingsPage() {
           placeholder="919876543210"
           value={whatsappNumber}
           onChange={(e) => setWhatsappNumber(e.target.value)}
+        />
+        <label className="settings-page__label" htmlFor="privacyPolicyUrl">
+          Privacy Policy URL
+          <span className="settings-page__hint">
+            External link that opens when users click "Privacy Policy"
+          </span>
+        </label>
+        <input
+          id="privacyPolicyUrl"
+          className="settings-page__input"
+          type="url"
+          placeholder="https://example.com/privacy-policy"
+          value={privacyPolicyUrl}
+          onChange={(e) => setPrivacyPolicyUrl(e.target.value)}
+        />
+        <label className="settings-page__label" htmlFor="openingsUrl">
+          Current Openings URL
+          <span className="settings-page__hint">
+            External link that opens when users click "Openings" (e.g. GreytHR jobs page)
+          </span>
+        </label>
+        <input
+          id="openingsUrl"
+          className="settings-page__input"
+          type="url"
+          placeholder="https://aaratech.greythr.com/hire/jobs/"
+          value={openingsUrl}
+          onChange={(e) => setOpeningsUrl(e.target.value)}
         />
         <button
           className="settings-page__save"

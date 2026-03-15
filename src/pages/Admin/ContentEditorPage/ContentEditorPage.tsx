@@ -75,15 +75,17 @@ export default function ContentEditorPage() {
   }
 
   function updateSectionField(sectionKey: string, fieldPath: string, value: any) {
-    setSections((prev) => ({
-      ...prev,
-      [sectionKey]: setNestedValue(prev[sectionKey] || {}, fieldPath, value),
-    }));
+    setSections((prev) => {
+      const sectionData = getNestedValue(prev, sectionKey) || {};
+      const updated = setNestedValue(sectionData, fieldPath, value);
+      return setNestedValue(prev, sectionKey, updated);
+    });
   }
 
   function renderField(sectionKey: string, field: FieldDef, parentPath = "") {
     const fullPath = parentPath ? `${parentPath}.${field.key}` : field.key;
-    const value = getNestedValue(sections[sectionKey], fullPath);
+    const sectionData = getNestedValue(sections, sectionKey) || {};
+    const value = getNestedValue(sectionData, fullPath);
 
     switch (field.type) {
       case "text":
@@ -299,10 +301,6 @@ export default function ContentEditorPage() {
           <ArrowLeft size={18} />
           Back
         </button>
-        <div className="content-editor__title-wrap">
-          <h1 className="content-editor__title">{pageDef.title}</h1>
-          <p className="content-editor__subtitle">Edit content for the {pageDef.title} page</p>
-        </div>
         <button
           className="content-editor__save"
           onClick={handleSave}
