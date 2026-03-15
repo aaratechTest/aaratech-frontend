@@ -7,6 +7,8 @@ export default function SettingsPage() {
   const [whatsappNumber, setWhatsappNumber] = useState("");
   const [privacyPolicyUrl, setPrivacyPolicyUrl] = useState("");
   const [openingsUrl, setOpeningsUrl] = useState("");
+  const [requestDemoUrl, setRequestDemoUrl] = useState("");
+  const [experienceToolUrl, setExperienceToolUrl] = useState("");
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [success, setSuccess] = useState("");
@@ -18,6 +20,8 @@ export default function SettingsPage() {
         setWhatsappNumber(s.whatsappNumber || "");
         setPrivacyPolicyUrl(s.privacyPolicyUrl || "");
         setOpeningsUrl(s.openingsUrl || "");
+        setRequestDemoUrl(s.requestDemoUrl || "");
+        setExperienceToolUrl(s.experienceToolUrl || "");
       })
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
@@ -30,7 +34,7 @@ export default function SettingsPage() {
     setError("");
 
     try {
-      await updateSettings({ whatsappNumber, privacyPolicyUrl, openingsUrl });
+      await updateSettings({ whatsappNumber, privacyPolicyUrl, openingsUrl, requestDemoUrl, experienceToolUrl });
       setSuccess("Settings saved successfully");
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Failed to save settings");
@@ -90,6 +94,34 @@ export default function SettingsPage() {
           placeholder="https://aaratech.greythr.com/hire/jobs/"
           value={openingsUrl}
           onChange={(e) => setOpeningsUrl(e.target.value)}
+        />
+        <label className="settings-page__label" htmlFor="requestDemoUrl">
+          Request Demo URL
+          <span className="settings-page__hint">
+            URL that "Request Demo" buttons link to (opens in new tab)
+          </span>
+        </label>
+        <input
+          id="requestDemoUrl"
+          className="settings-page__input"
+          type="url"
+          placeholder="https://example.com/request-demo"
+          value={requestDemoUrl}
+          onChange={(e) => setRequestDemoUrl(e.target.value)}
+        />
+        <label className="settings-page__label" htmlFor="experienceToolUrl">
+          Experience the Tool URL
+          <span className="settings-page__hint">
+            URL that "Experience the Tool" buttons link to (opens in new tab)
+          </span>
+        </label>
+        <input
+          id="experienceToolUrl"
+          className="settings-page__input"
+          type="url"
+          placeholder="https://example.com/experience-tool"
+          value={experienceToolUrl}
+          onChange={(e) => setExperienceToolUrl(e.target.value)}
         />
         <button
           className="settings-page__save"

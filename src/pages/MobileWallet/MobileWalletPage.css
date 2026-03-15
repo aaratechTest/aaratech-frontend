@@ -287,6 +287,7 @@
 
 /* ================= REQUEST DEMO BUTTON ================= */
 .wallet-scope .request-demo-btn {
+  text-decoration: none;
   display: inline-block;
   margin-top: 24px;
   padding: 12px 28px;

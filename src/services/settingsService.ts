@@ -4,6 +4,8 @@ export interface SiteSettings {
   whatsappNumber?: string;
   privacyPolicyUrl?: string;
   openingsUrl?: string;
+  requestDemoUrl?: string;
+  experienceToolUrl?: string;
 }
 
 interface MessageResponse {

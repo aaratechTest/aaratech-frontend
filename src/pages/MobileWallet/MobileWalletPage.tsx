@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { PRODUCTS,INDUSTRIES  } from "../../constants/Assets";
 import { usePageContent } from "../../hooks/usePageContent";
+import { useSettings } from "../../contexts/SettingsContext";
 
 import {
   FiSend,
@@ -238,6 +239,7 @@ const chooseUsTabs = [
 
 const MobileWalletPage = () => {
   const { content: sections } = usePageContent("mobile-wallet");
+  const settings = useSettings();
   const [activeFeatureTab, setActiveFeatureTab] = useState("fund-transfer");
   const [activeChooseTab, setActiveChooseTab] = useState("benefits");
 
@@ -302,7 +304,7 @@ const MobileWalletPage = () => {
           <div className="split-image-2">
             <img src={PRODUCTS.wallet} alt="Sling Wallet Mobile Wallet" />
             <div className="cen">
-              <button className="request-demo-btn">Request Demo</button>
+              <a href={settings.requestDemoUrl || "#"} target="_blank" rel="noopener noreferrer" className="request-demo-btn">Request Demo</a>
             </div>
           </div>
         </div>

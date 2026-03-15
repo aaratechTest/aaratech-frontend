@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { usePageContent } from "../../hooks/usePageContent";
-import { Link } from "react-router-dom";
+import { useSettings } from "../../contexts/SettingsContext";
 import "./AssemblerCoboltPage.css";
 
 /* ================= SIDEBAR TAB KEYS ================= */
@@ -115,6 +115,7 @@ const migrationSubTabs = [
 
 const AssemblerCobolPage = () => {
   const { content: sections } = usePageContent("assembler-cobol");
+  const settings = useSettings();
   const [activeTab, setActiveTab] = useState("mainframe-legacy");
   const [activeGlossaryLetter, setActiveGlossaryLetter] = useState("A");
   const [activeMigrationSubTab, setActiveMigrationSubTab] = useState("strategy");
@@ -188,12 +189,12 @@ const AssemblerCobolPage = () => {
       <div className="asm-header-bar">
         <h1 className="asm-header-title">Assembler to COBOL conversion</h1>
         <div className="asm-header-actions">
-          <Link to="/contact" className="asm-header-btn asm-header-btn--experience">
+          <a href={settings.experienceToolUrl || "#"} target="_blank" rel="noopener noreferrer" className="asm-header-btn asm-header-btn--experience">
             Experience the Tool
-          </Link>
-          <Link to="/contact" className="asm-header-btn asm-header-btn--demo">
+          </a>
+          <a href={settings.requestDemoUrl || "#"} target="_blank" rel="noopener noreferrer" className="asm-header-btn asm-header-btn--demo">
             Request for Demo
-          </Link>
+          </a>
         </div>
       </div>
 
@@ -207,7 +208,7 @@ const AssemblerCobolPage = () => {
 
           {/* ========== GLOSSARY ========== */}
           {activeTab === "glossary" && (
-            <div className="asm-content-block">
+            <div className="asm-content-block asm-glossary-block">
               <p>
                 Following are some of the instructions covered which are most
                 commonly used. We will keep updating the list very frequently

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { PRODUCTS,INDUSTRIES  } from "../../constants/Assets";
 import { usePageContent } from "../../hooks/usePageContent";
+import { useSettings } from "../../contexts/SettingsContext";
 
 import {
   FiBox,
@@ -240,6 +241,7 @@ const chooseUsTabs = [
 
 const SDBManagementPage = () => {
   const { content: sections } = usePageContent("sdb-management");
+  const settings = useSettings();
   const [activeFeatureTab, setActiveFeatureTab] = useState("inventory");
   const [activeChooseTab, setActiveChooseTab] = useState("benefits");
 
@@ -305,7 +307,7 @@ const SDBManagementPage = () => {
           <div className="split-image-2">
             <img src={PRODUCTS.safebox} alt="SecureBox Safe Deposit Box" />
             <div className="cen">
-              <button className="request-demo-btn">Request Demo</button>
+              <a href={settings.requestDemoUrl || "#"} target="_blank" rel="noopener noreferrer" className="request-demo-btn">Request Demo</a>
             </div>
           </div>
         </div>

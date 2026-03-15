@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { INDUSTRIES } from "../../constants/Assets";
 import { usePageContent } from "../../hooks/usePageContent";
+import { useSettings } from "../../contexts/SettingsContext";
 
 import {
   FiRefreshCw,
@@ -120,6 +121,7 @@ const chooseUsTabs = [
 
 const ServicesPage = () => {
   const { content: sections } = usePageContent("services");
+  const settings = useSettings();
   const [activeTab, setActiveTab] = useState<HeroTab>(heroTabs[0]!);
   const [activeChooseTab, setActiveChooseTab] = useState("different");
 
@@ -838,7 +840,7 @@ const ServicesPage = () => {
               <div className="split-image-2">
                 <img src={INDUSTRIES.service} alt="Legacy Technology" />
                 <div className="cen">
-                  <button className="request-demo-btn">Request Demo</button>
+                  <a href={settings.requestDemoUrl || "#"} target="_blank" rel="noopener noreferrer" className="request-demo-btn">Request Demo</a>
                 </div>
               </div>
             </div>
@@ -886,7 +888,7 @@ const ServicesPage = () => {
               </div>
             </div>
             <div className="cen">
-              <button className="request-demo-btn">Request Demo</button>
+              <a href={settings.requestDemoUrl || "#"} target="_blank" rel="noopener noreferrer" className="request-demo-btn">Request Demo</a>
             </div>
           </section>
 
@@ -978,7 +980,7 @@ const ServicesPage = () => {
               <div className="split-image-2">
                 <img src={INDUSTRIES.service} alt="Legacy Technology" />
                 <div className="cen">
-                  <button className="request-demo-btn">Request Demo</button>
+                  <a href={settings.requestDemoUrl || "#"} target="_blank" rel="noopener noreferrer" className="request-demo-btn">Request Demo</a>
                 </div>
               </div>
             </div>
@@ -1100,7 +1102,7 @@ const ServicesPage = () => {
               <div className="split-image-2">
                 <img src={INDUSTRIES.service} alt="Legacy Technology" />
                 <div className="cen">
-                  <button className="request-demo-btn">Request Demo</button>
+                  <a href={settings.requestDemoUrl || "#"} target="_blank" rel="noopener noreferrer" className="request-demo-btn">Request Demo</a>
                 </div>
               </div>
             </div>
@@ -1205,7 +1207,7 @@ const ServicesPage = () => {
               <div className="split-image-2">
                 <img src={INDUSTRIES.service} alt="Legacy Technology" />
                 <div className="cen">
-                  <button className="request-demo-btn">Request Demo</button>
+                  <a href={settings.requestDemoUrl || "#"} target="_blank" rel="noopener noreferrer" className="request-demo-btn">Request Demo</a>
                 </div>
               </div>
             </div>
@@ -1318,7 +1320,7 @@ Regression Testing – Correction of product defects for each new release and gu
               <div className="split-image-2">
                 <img src={INDUSTRIES.service} alt="Legacy Technology" />
                 <div className="cen">
-                  <button className="request-demo-btn">Request Demo</button>
+                  <a href={settings.requestDemoUrl || "#"} target="_blank" rel="noopener noreferrer" className="request-demo-btn">Request Demo</a>
                 </div>
               </div>
             </div>

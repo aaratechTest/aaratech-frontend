@@ -255,6 +255,9 @@
 }
 
 /* ================= GLOSSARY ================= */
+.asm-glossary-block {
+  padding: 7px;
+}
 
 /* ALPHABET BAR */
 .asm-alphabet-bar {

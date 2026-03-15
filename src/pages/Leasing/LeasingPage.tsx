@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { INDUSTRIES } from "../../constants/Assets";
 import { usePageContent } from "../../hooks/usePageContent";
+import { useSettings } from "../../contexts/SettingsContext";
 
 import {
   FiFileText,
@@ -249,6 +250,7 @@ const chooseUsTabs = [
 
 const LeasingPage = () => {
   const { content: sections } = usePageContent("leasing");
+  const settings = useSettings();
   const [activeFeatureTab, setActiveFeatureTab] = useState("lease-mgmt");
   const [activeChooseTab, setActiveChooseTab] = useState("different");
 
@@ -311,7 +313,7 @@ const LeasingPage = () => {
           <div className="split-image-2">
             <img src={INDUSTRIES.approachImg} alt="Leasing System" />
             <div className="cen">
-              <button className="request-demo-btn">Request Demo</button>
+              <a href={settings.requestDemoUrl || "#"} target="_blank" rel="noopener noreferrer" className="request-demo-btn">Request Demo</a>
             </div>
           </div>
         </div>

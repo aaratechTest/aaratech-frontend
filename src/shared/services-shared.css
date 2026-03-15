@@ -291,6 +291,7 @@
 
 /* ================= REQUEST DEMO BUTTON ================= */
 .request-demo-btn {
+  text-decoration: none;
   display: inline-block;
   margin-top: 24px;
   padding: 12px 28px;
@@ -334,6 +335,7 @@
 }
 
 .approach-section .request-demo-btn {
+  text-decoration: none;
   display: inline-block;
   margin-top: 24px;
   padding: 12px 28px;
