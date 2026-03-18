@@ -19,6 +19,7 @@ const AboutPage = () => {
   const delivery = sections.deliveryModel || {};
   const cta = sections.cta || {};
 
+
   return (
     <div className="about-page">
       {/* HERO */}

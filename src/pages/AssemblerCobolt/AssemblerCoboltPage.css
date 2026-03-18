@@ -364,6 +364,11 @@
 
 /* Tablets */
 @media (max-width: 992px) {
+  .asm-scope {
+    height: auto;
+    overflow: visible;
+  }
+
   .asm-header-bar {
     flex-direction: column;
     gap: 12px;
@@ -374,6 +379,7 @@
   .asm-layout {
     grid-template-columns: 1fr;
     min-height: auto;
+    overflow: visible;
   }
 
   .asm-sidebar {
@@ -421,26 +427,42 @@
 
 /* Mobile */
 @media (max-width: 768px) {
+  .asm-scope {
+    height: auto;
+    overflow: visible;
+  }
+
   .asm-header-bar {
     padding: 14px 16px;
   }
 
   .asm-header-title {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .asm-header-actions {
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
   }
 
   .asm-header-btn {
     padding: 8px 18px;
     font-size: 13px;
+    flex: 1;
+    min-width: 0;
+    text-align: center;
   }
 
   .asm-content-panel {
     padding: 0;
+    overflow-x: auto;
+  }
+
+  .asm-cms-content table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .asm-alpha-btn {

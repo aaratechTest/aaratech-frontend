@@ -1,8 +1,8 @@
 import "./Navbar.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { BRAND } from "../../constants/Assets";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { getSettings } from "../../services/settingsService";
 import { useMenu } from "../../contexts/MenuContext";
 import type { MenuGroup } from "../../types/page";
@@ -24,6 +24,24 @@ function Navbar() {
       .catch(() => {});
   }, []);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+    setActiveMenu(null);
+  }, [location.pathname]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
   const visibleGroups = groups
     .filter((g) => g.visible)
     .sort((a, b) => a.order - b.order);
@@ -44,7 +62,6 @@ function Navbar() {
   };
 
   const resolveChild = (child: { url: string; label: string; openInNewTab?: boolean }) => {
-    // Settings URLs always override — admin controls these from Settings page
     if (child.label === "Privacy Policy" && privacyPolicyUrl) {
       return { url: privacyPolicyUrl, external: true };
     }
@@ -54,10 +71,22 @@ function Navbar() {
     return { url: child.url, external: child.openInNewTab || (child.url && child.url.startsWith("http")) };
   };
 
+  // Toggle dropdown on click (works for both mobile and desktop)
+  const handleDropdownToggle = useCallback((index: number, hasChildren: boolean) => {
+    if (!hasChildren) return;
+    setActiveMenu((prev) => (prev === index ? null : index));
+  }, []);
+
+  // Close menu when clicking a link
+  const handleLinkClick = useCallback(() => {
+    setMobileOpen(false);
+    setActiveMenu(null);
+  }, []);
+
   return (
     <nav className="navbar">
       <div className="nav-left">
-        <Link to="/">
+        <Link to="/" onClick={handleLinkClick}>
           <img src={BRAND.logo} alt="Logo" />
         </Link>
       </div>
@@ -66,21 +95,41 @@ function Navbar() {
         {mobileOpen ? <X size={26} /> : <Menu size={26} />}
       </div>
 
+      {/* Mobile overlay */}
+      {mobileOpen && (
+        <div className="nav-overlay" onClick={() => setMobileOpen(false)} />
+      )}
+
       <ul className={`nav-menu ${mobileOpen ? "active" : ""}`}>
         {visibleGroups.map((group, index) => (
           <li
             key={group.id}
             className={isGroupActive(group) ? "nav-active" : ""}
-            onMouseEnter={() => setActiveMenu(index)}
-            onMouseLeave={() => setActiveMenu(null)}
+            onMouseEnter={() => {
+              if (window.innerWidth > 768) setActiveMenu(index);
+            }}
+            onMouseLeave={() => {
+              if (window.innerWidth > 768) setActiveMenu(null);
+            }}
           >
             {/* TOP-LEVEL LINK */}
             {group.url && !hasDropdown(group) ? (
-              <Link to={group.url}>{group.label}</Link>
+              <Link to={group.url} onClick={handleLinkClick}>{group.label}</Link>
             ) : (
-              <a href="#">
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleDropdownToggle(index, hasDropdown(group));
+                }}
+              >
                 {group.label}
-                {hasDropdown(group) && <span className="arrow">▼</span>}
+                {hasDropdown(group) && (
+                  <ChevronDown
+                    size={14}
+                    className={`arrow-icon ${activeMenu === index ? "rotated" : ""}`}
+                  />
+                )}
               </a>
             )}
 
@@ -96,11 +145,18 @@ function Navbar() {
                     return (
                       <li key={child.id}>
                         {resolved.external && resolved.url ? (
-                          <a href={resolved.url} target="_blank" rel="noopener noreferrer">
+                          <a
+                            href={resolved.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={handleLinkClick}
+                          >
                             {child.label}
                           </a>
                         ) : resolved.url ? (
-                          <Link to={resolved.url}>{child.label}</Link>
+                          <Link to={resolved.url} onClick={handleLinkClick}>
+                            {child.label}
+                          </Link>
                         ) : (
                           <a href="#">{child.label}</a>
                         )}

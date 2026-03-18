@@ -237,3 +237,25 @@
     height: 180px;
   }
 }
+
+@media (max-width: 480px) {
+  .event-list__hero {
+    padding: 80px 16px 48px;
+  }
+
+  .event-list__hero-title {
+    font-size: 1.8rem;
+  }
+
+  .event-list__hero-desc {
+    font-size: 0.9rem;
+  }
+
+  .event-card__body {
+    padding: 18px;
+  }
+
+  .event-card__title {
+    font-size: 1.05rem;
+  }
+}

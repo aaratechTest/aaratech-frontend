@@ -105,3 +105,43 @@
 .service-card:hover .service-link span {
   transform: translateX(6px);
 }
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .services-section {
+    padding: var(--section-padding-y) var(--section-padding-x);
+  }
+
+  .section-title {
+    font-size: 26px;
+    margin-bottom: 30px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .service-card {
+    min-height: auto;
+    padding: 28px 22px;
+  }
+
+  .service-icon {
+    font-size: 38px;
+  }
+
+  .service-title {
+    font-size: 19px;
+  }
+
+  .service-desc {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 22px;
+  }
+}

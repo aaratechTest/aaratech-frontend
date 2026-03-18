@@ -334,3 +334,29 @@
     height: 40px;
   }
 }
+
+@media (max-width: 480px) {
+  .event-detail__hero {
+    min-height: 260px;
+  }
+
+  .event-detail__hero-title {
+    font-size: 1.4rem;
+  }
+
+  .event-detail__hero-content {
+    padding-bottom: 32px;
+  }
+
+  .event-detail__content h2 {
+    font-size: 1.3rem;
+  }
+
+  .event-detail__content h3 {
+    font-size: 1.1rem;
+  }
+
+  .event-detail__sidebar-card {
+    padding: 20px 18px;
+  }
+}

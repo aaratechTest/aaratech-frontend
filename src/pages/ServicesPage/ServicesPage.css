@@ -30,3 +30,10 @@
 .services-hero h1 span {
   color: var(--color-secondary-light);
 }
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .services-hero {
+    padding: 60px 16px 48px;
+  }
+}

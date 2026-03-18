@@ -437,3 +437,33 @@
     font-size: 26px;
   }
 }
+
+/* ── Small mobile ── */
+@media (max-width: 480px) {
+  .culture-hero__text h1 {
+    font-size: 24px;
+  }
+
+  .culture-hero__text p {
+    font-size: 14px;
+  }
+
+  .culture-hero__image img {
+    width: 240px;
+  }
+
+  .culture-values__header h2,
+  .culture-life__content h2,
+  .culture-growth__header h2,
+  .culture-why-join h2 {
+    font-size: 22px;
+  }
+
+  .culture-stats__value {
+    font-size: 24px;
+  }
+
+  .culture-stats__grid {
+    gap: 18px;
+  }
+}

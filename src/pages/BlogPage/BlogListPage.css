@@ -184,3 +184,25 @@
     height: 180px;
   }
 }
+
+@media (max-width: 480px) {
+  .blog-list__hero {
+    padding: 80px 16px 48px;
+  }
+
+  .blog-list__hero-title {
+    font-size: 1.8rem;
+  }
+
+  .blog-list__hero-desc {
+    font-size: 0.9rem;
+  }
+
+  .blog-card__body {
+    padding: 18px;
+  }
+
+  .blog-card__title {
+    font-size: 1.05rem;
+  }
+}

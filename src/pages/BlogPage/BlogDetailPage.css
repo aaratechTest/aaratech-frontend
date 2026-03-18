@@ -273,3 +273,30 @@
     height: 40px;
   }
 }
+
+@media (max-width: 480px) {
+  .blog-detail__hero {
+    min-height: 260px;
+  }
+
+  .blog-detail__hero-title {
+    font-size: 1.4rem;
+  }
+
+  .blog-detail__hero-content {
+    padding-bottom: 32px;
+  }
+
+  .blog-detail__content-wrap {
+    padding-top: 28px;
+    padding-bottom: 48px;
+  }
+
+  .blog-detail__content h2 {
+    font-size: 1.3rem;
+  }
+
+  .blog-detail__content h3 {
+    font-size: 1.1rem;
+  }
+}

@@ -117,7 +117,36 @@
 
 /* MOBILE */
 @media (max-width: 600px) {
+  .products-section {
+    padding: var(--section-padding-y) var(--section-padding-x);
+  }
+
+  .products-section h2 {
+    font-size: 26px;
+    margin-bottom: 30px;
+  }
+
   .products-grid {
     grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .product-card {
+    height: 240px;
+  }
+
+  .card-content h3 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .products-section h2 {
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+
+  .product-card {
+    height: 220px;
   }
 }
