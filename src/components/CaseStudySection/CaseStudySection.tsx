@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./CaseStudySection.css";
 
 interface CaseStudyData {
@@ -25,7 +26,7 @@ const CaseStudySection: React.FC<{ data?: CaseStudyData }> = ({ data }) => {
           <h2>{heading}</h2>
           <p>{subtitle}</p>
         </div>
-        <button className="view-all">VIEW ALL</button>
+        <Link to="/about" className="view-all" style={{ textDecoration: "none", color: "inherit" }}>VIEW ALL</Link>
       </div>
 
       {/* CARDS */}

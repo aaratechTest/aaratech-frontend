@@ -27,6 +27,22 @@ function HomePage() {
       <ProductsSection data={content.products} />
       <ClientsSection data={content.clients} />
       <CaseStudySection data={content.caseStudies} />
+
+      {/* SEO: hidden internal links for crawler discovery */}
+      <nav className="sr-only" aria-label="Site navigation">
+        <a href="/about">About AaraTech</a>
+        <a href="/services">IT Services</a>
+        <a href="/industries">Industries</a>
+        <a href="/contact">Contact Us</a>
+        <a href="/lending-solutions">Lending Solutions</a>
+        <a href="/leasing">Leasing Solutions</a>
+        <a href="/sdb-management">Safe Deposit Box Management</a>
+        <a href="/mobile-wallet">Mobile Wallet</a>
+        <a href="/assembler-cobol">Assembler to COBOL Conversion</a>
+        <a href="/culture">Our Culture</a>
+        <a href="/blog">Blog</a>
+        <a href="/events">Events</a>
+      </nav>
     </>
   );
 }

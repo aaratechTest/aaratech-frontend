@@ -93,6 +93,9 @@ const HeroSec: React.FC<{ data?: HeroData }> = ({ data }) => {
       onMouseEnter={() => { pausedRef.current = true; }}
       onMouseLeave={() => { pausedRef.current = false; }}
     >
+      {/* SEO: persistent H1 — visually hidden but always in DOM for crawlers */}
+      <h1 className="sr-only">AaraTech - Enterprise Technology Solutions &amp; IT Services</h1>
+
       {/* SLIDES */}
       <div className="hero-carousel__track">
         {slides.map((slide, i) => {
@@ -119,9 +122,9 @@ const HeroSec: React.FC<{ data?: HeroData }> = ({ data }) => {
               {isActive && (
                 <div className="hero-carousel__content" key={animKey}>
                   {slide.title && (
-                    <h1 className="hero-carousel__title hero-anim hero-anim--1">
+                    <h2 className="hero-carousel__title hero-anim hero-anim--1">
                       {slide.title}
-                    </h1>
+                    </h2>
                   )}
 
                   {slide.description && (

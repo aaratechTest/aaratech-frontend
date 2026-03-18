@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./ServicesSection.css";
 
 type Service = {
@@ -33,14 +34,14 @@ function ServicesSection({ data }: { data?: ServicesData }) {
 
       <div className="services-grid">
         {services.map((service, index) => (
-          <div className="service-card" key={index}>
+          <Link to="/services" className="service-card" key={index} style={{ textDecoration: "none", color: "inherit" }}>
             <div className="service-icon">{service.icon}</div>
             <h3 className="service-title">{service.title}</h3>
             <p className="service-desc">{service.desc}</p>
             <div className="service-link">
               Explore more <span>&rarr;</span>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>
