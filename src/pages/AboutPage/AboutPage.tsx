@@ -2,12 +2,17 @@ import "./AboutPage.css";
 import { ABOUT, COMMITMENT, TEAM } from "../../constants/Assets";
 import { usePageContent } from "../../hooks/usePageContent";
 import { useState } from "react";
+import PageLoader from "../../components/PageLoader/PageLoader";
+import SEO from "../../components/SEO/SEO";
+import { seoDefaults } from "../../constants/seoDefaults";
+import { breadcrumbSchema } from "../../utils/structuredData";
 
 const commitmentImages = [COMMITMENT.innovation, COMMITMENT.quality, COMMITMENT.collaboration, COMMITMENT.customer, COMMITMENT.people];
 const teamImages = [TEAM.balamurugan, TEAM.ravi, TEAM.chandra];
 
 const AboutPage = () => {
-  const { content: sections } = usePageContent("about");
+  const { content: sections, loading, meta } = usePageContent("about");
+  const seo = seoDefaults.about;
   const [selectedMember, setSelectedMember] = useState<any>(null);
 
   const hero = sections.hero || {};
@@ -22,6 +27,13 @@ const AboutPage = () => {
 
   return (
     <div className="about-page">
+      <SEO
+        title={meta.metaTitle || seo.title}
+        description={meta.metaDescription || seo.description}
+        path="/about"
+        structuredData={breadcrumbSchema([{ name: "About", path: "/about" }])}
+      />
+      {loading && <PageLoader />}
       {/* HERO */}
       <section className="about-section">
         <div className="about-container">
@@ -39,7 +51,7 @@ const AboutPage = () => {
       <section className="vision-mission">
         <div className="vm-card">
           <div className="vm-left">
-            <img src={ABOUT.plan} alt="Planning" />
+            <img src={ABOUT.plan} alt="Planning" loading="lazy" />
           </div>
           <div className="vm-content">
             <div className="vm-block">
@@ -135,7 +147,7 @@ const AboutPage = () => {
       <section className="approach-2-section">
         <div className="approach-2-container">
           <div className="approach-2-image">
-            <img src={ABOUT.approach} alt="Approach" />
+            <img src={ABOUT.approach} alt="Approach" loading="lazy" />
           </div>
           <div className="approach-2-content">
             <h2><strong>{approach.heading ?? "Our approach"}</strong></h2>

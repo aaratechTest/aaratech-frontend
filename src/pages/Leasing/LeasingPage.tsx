@@ -2,6 +2,9 @@ import { useState } from "react";
 import { INDUSTRIES } from "../../constants/Assets";
 import { usePageContent } from "../../hooks/usePageContent";
 import { useSettings } from "../../contexts/SettingsContext";
+import SEO from "../../components/SEO/SEO";
+import { seoDefaults } from "../../constants/seoDefaults";
+import { serviceSchema, breadcrumbSchema } from "../../utils/structuredData";
 
 import {
   FiFileText,
@@ -260,6 +263,15 @@ const LeasingPage = () => {
 
   return (
     <div className="leasing-scope">
+      <SEO
+        title={seoDefaults["leasing"].title}
+        description={seoDefaults["leasing"].description}
+        path="/leasing"
+        structuredData={[
+          serviceSchema("Leasing Solutions", seoDefaults["leasing"].description, "/leasing"),
+          breadcrumbSchema([{ name: "Leasing Solutions", path: "/leasing" }]),
+        ]}
+      />
       {/* ================= HERO ================= */}
       <section className="leasing-hero">
         <div className="hero-overlay" />
@@ -311,7 +323,7 @@ const LeasingPage = () => {
           </div>
 
           <div className="split-image-2">
-            <img src={INDUSTRIES.approachImg} alt="Leasing System" />
+            <img src={INDUSTRIES.approachImg} alt="Leasing System" loading="lazy" />
             <div className="cen">
               <a href={settings.requestDemoUrl || "#"} target="_blank" rel="noopener noreferrer" className="request-demo-btn">Request Demo</a>
             </div>
@@ -455,7 +467,7 @@ const LeasingPage = () => {
 
         <div className="split-container-2">
           <div className="split-image-2">
-            <img src={INDUSTRIES.service} alt="Leasing Highlights" />
+            <img src={INDUSTRIES.service} alt="Leasing Highlights" loading="lazy" />
           </div>
 
           <div className="split-text-2">
@@ -579,7 +591,7 @@ const LeasingPage = () => {
           </div>
 
           <div className="split-image-2">
-            <img src={INDUSTRIES.service} alt="Why Choose Us" />
+            <img src={INDUSTRIES.service} alt="Why Choose Us" loading="lazy" />
           </div>
         </div>
       </section>

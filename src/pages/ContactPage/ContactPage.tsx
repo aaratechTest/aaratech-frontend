@@ -1,9 +1,14 @@
 import { useState } from "react";
 import "./ContactPage.css";
 import { usePageContent } from "../../hooks/usePageContent";
+import PageLoader from "../../components/PageLoader/PageLoader";
+import SEO from "../../components/SEO/SEO";
+import { seoDefaults } from "../../constants/seoDefaults";
+import { contactPageSchema } from "../../utils/structuredData";
 
 const ContactPage = () => {
-  const { content: sections } = usePageContent("contact");
+  const { content: sections, loading: pageLoading, meta } = usePageContent("contact");
+  const seo = seoDefaults.contact;
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -41,6 +46,13 @@ const ContactPage = () => {
 
   return (
     <section className="contact-scope">
+      <SEO
+        title={meta.metaTitle || seo.title}
+        description={meta.metaDescription || seo.description}
+        path="/contact"
+        structuredData={contactPageSchema()}
+      />
+      {pageLoading && <PageLoader />}
       {/* HERO */}
       <header className="contact-hero">
         <div className="hero-content">

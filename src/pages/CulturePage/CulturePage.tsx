@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import { CULTURE, COMMITMENT } from "../../constants/Assets";
 import { usePageContent } from "../../hooks/usePageContent";
 import { getSettings } from "../../services/settingsService";
+import SEO from "../../components/SEO/SEO";
+import { seoDefaults } from "../../constants/seoDefaults";
+import { breadcrumbSchema } from "../../utils/structuredData";
 
 const valueImages = [COMMITMENT.innovation, COMMITMENT.collaboration, COMMITMENT.quality, COMMITMENT.people];
 
@@ -26,6 +29,12 @@ const CulturePage = () => {
 
   return (
     <div className="culture-page">
+      <SEO
+        title={seoDefaults["culture"].title}
+        description={seoDefaults["culture"].description}
+        path="/culture"
+        structuredData={breadcrumbSchema([{ name: "Our Culture", path: "/culture" }])}
+      />
       {/* HERO */}
       <section className="culture-hero">
         <div className="culture-hero__container">

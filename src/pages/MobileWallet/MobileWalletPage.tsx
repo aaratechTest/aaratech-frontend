@@ -2,6 +2,9 @@ import { useState } from "react";
 import { PRODUCTS,INDUSTRIES  } from "../../constants/Assets";
 import { usePageContent } from "../../hooks/usePageContent";
 import { useSettings } from "../../contexts/SettingsContext";
+import SEO from "../../components/SEO/SEO";
+import { seoDefaults } from "../../constants/seoDefaults";
+import { serviceSchema, breadcrumbSchema } from "../../utils/structuredData";
 
 import {
   FiSend,
@@ -253,6 +256,15 @@ const MobileWalletPage = () => {
 
   return (
     <div className="wallet-scope">
+      <SEO
+        title={seoDefaults["mobile-wallet"].title}
+        description={seoDefaults["mobile-wallet"].description}
+        path="/mobile-wallet"
+        structuredData={[
+          serviceSchema("Mobile Wallet", seoDefaults["mobile-wallet"].description, "/mobile-wallet"),
+          breadcrumbSchema([{ name: "Mobile Wallet", path: "/mobile-wallet" }]),
+        ]}
+      />
       {/* ================= HERO ================= */}
       <section className="wallet-hero">
         <div className="hero-overlay" />
@@ -302,7 +314,7 @@ const MobileWalletPage = () => {
           </div>
 
           <div className="split-image-2">
-            <img src={PRODUCTS.wallet} alt="Sling Wallet Mobile Wallet" />
+            <img src={PRODUCTS.wallet} alt="Sling Wallet Mobile Wallet" loading="lazy" />
             <div className="cen">
               <a href={settings.requestDemoUrl || "#"} target="_blank" rel="noopener noreferrer" className="request-demo-btn">Request Demo</a>
             </div>
@@ -446,7 +458,7 @@ const MobileWalletPage = () => {
 
         <div className="split-container-2">
           <div className="split-image-2">
-            <img src={INDUSTRIES.service} alt="Sling Wallet Benefits" />
+            <img src={INDUSTRIES.service} alt="Sling Wallet Benefits" loading="lazy" />
           </div>
 
           <div className="split-text-2">
@@ -569,7 +581,7 @@ const MobileWalletPage = () => {
           </div>
 
           <div className="split-image-2">
-            <img src={PRODUCTS.wallet} alt="Why Choose Sling Wallet" />
+            <img src={PRODUCTS.wallet} alt="Why Choose Sling Wallet" loading="lazy" />
           </div>
         </div>
       </section>

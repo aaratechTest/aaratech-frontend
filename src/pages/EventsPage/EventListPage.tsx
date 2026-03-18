@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getEvents } from "../../services/eventService";
 import type { EventListItem } from "../../types/event";
+import SEO from "../../components/SEO/SEO";
+import { seoDefaults } from "../../constants/seoDefaults";
+import { breadcrumbSchema } from "../../utils/structuredData";
 
 const typeLabels: Record<string, string> = {
   webinar: "Webinar",
@@ -45,6 +48,12 @@ export default function EventListPage() {
 
   return (
     <div className="event-list">
+      <SEO
+        title={seoDefaults["events"].title}
+        description={seoDefaults["events"].description}
+        path="/events"
+        structuredData={breadcrumbSchema([{ name: "Events", path: "/events" }])}
+      />
       {/* Hero */}
       <section className="event-list__hero">
         <div className="event-list__hero-content">

@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { usePageContent } from "../../hooks/usePageContent";
 import { useSettings } from "../../contexts/SettingsContext";
+import SEO from "../../components/SEO/SEO";
+import { seoDefaults } from "../../constants/seoDefaults";
+import { serviceSchema, breadcrumbSchema } from "../../utils/structuredData";
 import "./AssemblerCoboltPage.css";
 
 /* ================= SIDEBAR TAB KEYS ================= */
@@ -185,6 +188,15 @@ const AssemblerCobolPage = () => {
 
   return (
     <div className="asm-scope">
+      <SEO
+        title={seoDefaults["assembler-cobol"].title}
+        description={seoDefaults["assembler-cobol"].description}
+        path="/assembler-cobol"
+        structuredData={[
+          serviceSchema("Assembler to COBOL Conversion", seoDefaults["assembler-cobol"].description, "/assembler-cobol"),
+          breadcrumbSchema([{ name: "Assembler to COBOL Conversion", path: "/assembler-cobol" }]),
+        ]}
+      />
       {/* ================= HEADER BAR ================= */}
       <div className="asm-header-bar">
         <h1 className="asm-header-title">Assembler to COBOL conversion</h1>

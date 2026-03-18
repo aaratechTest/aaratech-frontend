@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import "./LendingSolutions.css";
 import { PRODUCTS, INDUSTRIES } from "../../constants/Assets";
 import { usePageContent } from "../../hooks/usePageContent";
+import SEO from "../../components/SEO/SEO";
+import { seoDefaults } from "../../constants/seoDefaults";
+import { serviceSchema, breadcrumbSchema } from "../../utils/structuredData";
 
 /* ================= MODULE DATA ================= */
 const modules = [
@@ -163,6 +166,15 @@ const LendingSolutionsPage = () => {
 
   return (
     <div className="lending-scope">
+      <SEO
+        title={seoDefaults["lending-solutions"].title}
+        description={seoDefaults["lending-solutions"].description}
+        path="/lending-solutions"
+        structuredData={[
+          serviceSchema("Lending Solutions", seoDefaults["lending-solutions"].description, "/lending-solutions"),
+          breadcrumbSchema([{ name: "Lending Solutions", path: "/lending-solutions" }]),
+        ]}
+      />
       {/* ================= HERO ================= */}
       <section className="lending-hero">
         <div className="lending-hero-content">
@@ -253,7 +265,7 @@ const LendingSolutionsPage = () => {
           </div>
 
           <div className="lending-overview-visual">
-            <img src={PRODUCTS.lending} alt="Aara Tech Lending Solutions" />
+            <img src={PRODUCTS.lending} alt="Aara Tech Lending Solutions" loading="lazy" />
             <div className="overview-float-card">
               <div className="float-icon">🏦</div>
               <div className="float-text">
@@ -352,7 +364,7 @@ const LendingSolutionsPage = () => {
           </div>
 
           <div className="features-visual">
-            <img src={INDUSTRIES.service} alt="Lending Features" />
+            <img src={INDUSTRIES.service} alt="Lending Features" loading="lazy" />
           </div>
         </div>
       </section>
@@ -384,7 +396,7 @@ const LendingSolutionsPage = () => {
       <section className="lending-integration">
         <div className="lending-integration-container">
           <div className="integration-visual">
-            <img src={PRODUCTS.lending} alt="System Integration" />
+            <img src={PRODUCTS.lending} alt="System Integration" loading="lazy" />
           </div>
 
           <div className="integration-text">

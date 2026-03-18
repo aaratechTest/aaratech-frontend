@@ -2,6 +2,9 @@ import { useState } from "react";
 import { PRODUCTS,INDUSTRIES  } from "../../constants/Assets";
 import { usePageContent } from "../../hooks/usePageContent";
 import { useSettings } from "../../contexts/SettingsContext";
+import SEO from "../../components/SEO/SEO";
+import { seoDefaults } from "../../constants/seoDefaults";
+import { serviceSchema, breadcrumbSchema } from "../../utils/structuredData";
 
 import {
   FiBox,
@@ -251,6 +254,15 @@ const SDBManagementPage = () => {
 
   return (
     <div className="sdb-scope">
+      <SEO
+        title={seoDefaults["sdb-management"].title}
+        description={seoDefaults["sdb-management"].description}
+        path="/sdb-management"
+        structuredData={[
+          serviceSchema("Safe Deposit Box Management", seoDefaults["sdb-management"].description, "/sdb-management"),
+          breadcrumbSchema([{ name: "Safe Deposit Box Management", path: "/sdb-management" }]),
+        ]}
+      />
       {/* ================= HERO ================= */}
       <section className="sdb-hero">
         <div className="hero-overlay" />
@@ -305,7 +317,7 @@ const SDBManagementPage = () => {
           </div>
 
           <div className="split-image-2">
-            <img src={PRODUCTS.safebox} alt="SecureBox Safe Deposit Box" />
+            <img src={PRODUCTS.safebox} alt="SecureBox Safe Deposit Box" loading="lazy" />
             <div className="cen">
               <a href={settings.requestDemoUrl || "#"} target="_blank" rel="noopener noreferrer" className="request-demo-btn">Request Demo</a>
             </div>
@@ -450,7 +462,7 @@ const SDBManagementPage = () => {
 
         <div className="split-container-2">
           <div className="split-image-2">
-            <img src={INDUSTRIES.service} alt="SecureBox Features" />
+            <img src={INDUSTRIES.service} alt="SecureBox Features" loading="lazy" />
           </div>
 
           <div className="split-text-2">
@@ -575,7 +587,7 @@ const SDBManagementPage = () => {
           </div>
 
           <div className="split-image-2">
-            <img src={INDUSTRIES.service} alt="Why Choose SecureBox" />
+            <img src={INDUSTRIES.service} alt="Why Choose SecureBox" loading="lazy" />
           </div>
         </div>
       </section>

@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getBlogBySlug } from "../../services/blogService";
 import type { Blog } from "../../types/blog";
+import SEO from "../../components/SEO/SEO";
+import { blogPostingSchema } from "../../utils/structuredData";
 
 export default function BlogDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -90,6 +92,21 @@ export default function BlogDetailPage() {
 
   return (
     <div className="blog-detail">
+      <SEO
+        title={blog.title}
+        description={blog.excerpt || blog.title}
+        path={`/blog/${blog.slug}`}
+        ogType="article"
+        ogImage={blog.coverImageUrl}
+        structuredData={blogPostingSchema({
+          title: blog.title,
+          excerpt: blog.excerpt || blog.title,
+          coverImageUrl: blog.coverImageUrl,
+          author: blog.author,
+          createdAt: blog.createdAt,
+          slug: blog.slug,
+        })}
+      />
       {/* Hero */}
       <section
         className="blog-detail__hero"

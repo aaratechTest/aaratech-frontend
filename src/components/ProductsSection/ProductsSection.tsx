@@ -29,7 +29,7 @@ type ProductCardProps = Product;
 const ProductCard: React.FC<ProductCardProps> = ({ title, desc, img }) => {
   return (
     <div className="product-card">
-      <img src={img} alt={title} />
+      <img src={img} alt={title} loading="lazy" />
       <div className="card-content">
         <h3>{title}</h3>
         <div className="hover-content">

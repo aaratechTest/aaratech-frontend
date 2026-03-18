@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getBlogs } from "../../services/blogService";
 import type { BlogListItem } from "../../types/blog";
+import SEO from "../../components/SEO/SEO";
+import { seoDefaults } from "../../constants/seoDefaults";
+import { breadcrumbSchema } from "../../utils/structuredData";
 
 export default function BlogListPage() {
   const [blogs, setBlogs] = useState<BlogListItem[]>([]);
@@ -26,6 +29,12 @@ export default function BlogListPage() {
 
   return (
     <div className="blog-list">
+      <SEO
+        title={seoDefaults["blog"].title}
+        description={seoDefaults["blog"].description}
+        path="/blog"
+        structuredData={breadcrumbSchema([{ name: "Blog", path: "/blog" }])}
+      />
       {/* Hero */}
       <section className="blog-list__hero">
         <div className="blog-list__hero-content">

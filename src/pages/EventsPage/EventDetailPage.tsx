@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getEventBySlug } from "../../services/eventService";
 import type { Event } from "../../types/event";
+import SEO from "../../components/SEO/SEO";
+import { eventSchema } from "../../utils/structuredData";
 
 const typeLabels: Record<string, string> = {
   webinar: "Webinar",
@@ -108,6 +110,22 @@ export default function EventDetailPage() {
 
   return (
     <div className="event-detail">
+      <SEO
+        title={event.title}
+        description={event.excerpt || event.title}
+        path={`/events/${event.slug}`}
+        ogType="article"
+        ogImage={event.coverImageUrl}
+        structuredData={eventSchema({
+          title: event.title,
+          excerpt: event.excerpt || event.title,
+          coverImageUrl: event.coverImageUrl,
+          eventDate: event.eventDate,
+          location: event.location,
+          registrationUrl: event.registrationUrl,
+          slug: event.slug,
+        })}
+      />
       {/* Hero */}
       <section
         className="event-detail__hero"

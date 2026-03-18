@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { INDUSTRIES } from "../../constants/Assets";
 import { usePageContent } from "../../hooks/usePageContent";
+import PageLoader from "../../components/PageLoader/PageLoader";
+import SEO from "../../components/SEO/SEO";
+import { seoDefaults } from "../../constants/seoDefaults";
+import { breadcrumbSchema } from "../../utils/structuredData";
 
 import { FiCreditCard, FiTruck, FiShoppingCart, FiMail } from "react-icons/fi";
 
@@ -126,13 +130,21 @@ const industriesContent = {
   },
 };
 const ServicesPage = () => {
-  const { content: sections } = usePageContent("industries");
+  const { content: sections, loading, meta } = usePageContent("industries");
+  const seo = seoDefaults.industries;
   const [activeTab, setActiveTab] =
     useState<keyof typeof industriesContent>("banking");
   const activeData = industriesContent[activeTab];
 
   return (
     <div className="services-scope">
+      <SEO
+        title={meta.metaTitle || seo.title}
+        description={meta.metaDescription || seo.description}
+        path="/industries"
+        structuredData={breadcrumbSchema([{ name: "Industries", path: "/industries" }])}
+      />
+      {loading && <PageLoader />}
       {/* ================= HERO ================= */}
       <section className="services-hero-1">
         <div className="hero-overlay" />
@@ -204,7 +216,7 @@ const ServicesPage = () => {
           {/* Right Image + Challenges */}
           <div className="industries-right">
             <div className="image-wrapper">
-              <img src={activeData.image} alt="Industry Solutions" />
+              <img src={activeData.image} alt="Industry Solutions" loading="lazy" />
             </div>
 
             <div className="challenges">

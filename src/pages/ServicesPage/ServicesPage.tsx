@@ -2,6 +2,10 @@ import { useState } from "react";
 import { INDUSTRIES } from "../../constants/Assets";
 import { usePageContent } from "../../hooks/usePageContent";
 import { useSettings } from "../../contexts/SettingsContext";
+import PageLoader from "../../components/PageLoader/PageLoader";
+import SEO from "../../components/SEO/SEO";
+import { seoDefaults } from "../../constants/seoDefaults";
+import { serviceSchema } from "../../utils/structuredData";
 
 import {
   FiRefreshCw,
@@ -120,7 +124,8 @@ const chooseUsTabs = [
 ];
 
 const ServicesPage = () => {
-  const { content: sections } = usePageContent("services");
+  const { content: sections, loading, meta } = usePageContent("services");
+  const seo = seoDefaults.services;
   const settings = useSettings();
   const [activeTab, setActiveTab] = useState<HeroTab>(heroTabs[0]!);
   const [activeChooseTab, setActiveChooseTab] = useState("different");
@@ -711,6 +716,13 @@ const ServicesPage = () => {
   
   return (
     <div className="services-scope">
+      <SEO
+        title={meta.metaTitle || seo.title}
+        description={meta.metaDescription || seo.description}
+        path="/services"
+        structuredData={serviceSchema("IT Services", seo.description, "/services")}
+      />
+      {loading && <PageLoader />}
       {/* ================= HERO ================= */}
       <section className="services-hero">
         <div className="hero-overlay" />

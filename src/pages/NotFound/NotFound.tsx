@@ -1,12 +1,18 @@
 import "./NotFound.css";
 import { Link, useLocation } from "react-router-dom";
 import { FiHome, FiArrowLeft, FiMail } from "react-icons/fi";
+import SEO from "../../components/SEO/SEO";
 
 function NotFoundPage() {
   const location = useLocation();
 
   return (
     <div className="notfound-scope">
+      <SEO
+        title="Page Not Found"
+        description="The page you're looking for doesn't exist or has been moved."
+        noindex
+      />
       {/* HERO */}
       <section className="notfound-hero">
         <div className="notfound-hero-overlay" />
