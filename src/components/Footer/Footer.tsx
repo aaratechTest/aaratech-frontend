@@ -1,6 +1,7 @@
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
 import { usePageContent } from "../../hooks/usePageContent";
+import { useSettings } from "../../contexts/SettingsContext";
 import "./Footer.css";
 
 interface Office {
@@ -35,12 +36,12 @@ const defaultOffices: Office[] = [
 
 export default function Footer() {
   const { content } = usePageContent("footer");
+  const settings = useSettings();
 
   const offices: Office[] = content.offices?.items?.length
     ? content.offices.items
     : defaultOffices;
 
-  const social = content.social ?? { facebook: "", twitter: "", linkedin: "" };
   const copyrightText =
     content.bottom?.copyrightText ?? "Aara Tech Pvt Ltd. All rights reserved.";
 
@@ -135,29 +136,35 @@ export default function Footer() {
             <li><Link to="/contact">Contact</Link></li>
           </ul>
 
-          <div className="footer-social">
-            <a
-              href={social.facebook || "#"}
-              aria-label="Facebook"
-              {...(social.facebook ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-            >
-              <Facebook size={20} />
-            </a>
-            <a
-              href={social.twitter || "#"}
-              aria-label="Twitter"
-              {...(social.twitter ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-            >
-              <Twitter size={20} />
-            </a>
-            <a
-              href={social.linkedin || "#"}
-              aria-label="LinkedIn"
-              {...(social.linkedin ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-            >
-              <Linkedin size={20} />
-            </a>
-          </div>
+          {(settings.socialFacebook || settings.socialTwitter || settings.socialLinkedin || settings.socialInstagram || settings.socialYoutube) && (
+            <div className="footer-social">
+              {settings.socialFacebook && (
+                <a href={settings.socialFacebook} aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                  <Facebook size={20} />
+                </a>
+              )}
+              {settings.socialTwitter && (
+                <a href={settings.socialTwitter} aria-label="Twitter" target="_blank" rel="noopener noreferrer">
+                  <Twitter size={20} />
+                </a>
+              )}
+              {settings.socialLinkedin && (
+                <a href={settings.socialLinkedin} aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                  <Linkedin size={20} />
+                </a>
+              )}
+              {settings.socialInstagram && (
+                <a href={settings.socialInstagram} aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                  <Instagram size={20} />
+                </a>
+              )}
+              {settings.socialYoutube && (
+                <a href={settings.socialYoutube} aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+                  <Youtube size={20} />
+                </a>
+              )}
+            </div>
+          )}
         </div>
       </div>
 

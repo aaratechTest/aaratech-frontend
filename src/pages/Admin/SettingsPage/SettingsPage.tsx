@@ -9,6 +9,11 @@ export default function SettingsPage() {
   const [openingsUrl, setOpeningsUrl] = useState("");
   const [requestDemoUrl, setRequestDemoUrl] = useState("");
   const [experienceToolUrl, setExperienceToolUrl] = useState("");
+  const [socialFacebook, setSocialFacebook] = useState("");
+  const [socialTwitter, setSocialTwitter] = useState("");
+  const [socialLinkedin, setSocialLinkedin] = useState("");
+  const [socialInstagram, setSocialInstagram] = useState("");
+  const [socialYoutube, setSocialYoutube] = useState("");
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [success, setSuccess] = useState("");
@@ -22,6 +27,11 @@ export default function SettingsPage() {
         setOpeningsUrl(s.openingsUrl || "");
         setRequestDemoUrl(s.requestDemoUrl || "");
         setExperienceToolUrl(s.experienceToolUrl || "");
+        setSocialFacebook(s.socialFacebook || "");
+        setSocialTwitter(s.socialTwitter || "");
+        setSocialLinkedin(s.socialLinkedin || "");
+        setSocialInstagram(s.socialInstagram || "");
+        setSocialYoutube(s.socialYoutube || "");
       })
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
@@ -34,7 +44,10 @@ export default function SettingsPage() {
     setError("");
 
     try {
-      await updateSettings({ whatsappNumber, privacyPolicyUrl, openingsUrl, requestDemoUrl, experienceToolUrl });
+      await updateSettings({
+        whatsappNumber, privacyPolicyUrl, openingsUrl, requestDemoUrl, experienceToolUrl,
+        socialFacebook, socialTwitter, socialLinkedin, socialInstagram, socialYoutube,
+      });
       setSuccess("Settings saved successfully");
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Failed to save settings");
@@ -123,6 +136,71 @@ export default function SettingsPage() {
           value={experienceToolUrl}
           onChange={(e) => setExperienceToolUrl(e.target.value)}
         />
+        <h2 className="settings-page__section-title">Social Media Links</h2>
+        <p className="settings-page__section-hint">
+          Paste your social media page URLs below. Only icons with a URL will be shown on the website.
+        </p>
+
+        <label className="settings-page__label" htmlFor="socialFacebook">
+          Facebook URL
+        </label>
+        <input
+          id="socialFacebook"
+          className="settings-page__input"
+          type="url"
+          placeholder="https://www.facebook.com/yourpage"
+          value={socialFacebook}
+          onChange={(e) => setSocialFacebook(e.target.value)}
+        />
+
+        <label className="settings-page__label" htmlFor="socialTwitter">
+          Twitter / X URL
+        </label>
+        <input
+          id="socialTwitter"
+          className="settings-page__input"
+          type="url"
+          placeholder="https://twitter.com/yourhandle"
+          value={socialTwitter}
+          onChange={(e) => setSocialTwitter(e.target.value)}
+        />
+
+        <label className="settings-page__label" htmlFor="socialLinkedin">
+          LinkedIn URL
+        </label>
+        <input
+          id="socialLinkedin"
+          className="settings-page__input"
+          type="url"
+          placeholder="https://www.linkedin.com/company/yourcompany"
+          value={socialLinkedin}
+          onChange={(e) => setSocialLinkedin(e.target.value)}
+        />
+
+        <label className="settings-page__label" htmlFor="socialInstagram">
+          Instagram URL
+        </label>
+        <input
+          id="socialInstagram"
+          className="settings-page__input"
+          type="url"
+          placeholder="https://www.instagram.com/yourhandle"
+          value={socialInstagram}
+          onChange={(e) => setSocialInstagram(e.target.value)}
+        />
+
+        <label className="settings-page__label" htmlFor="socialYoutube">
+          YouTube URL
+        </label>
+        <input
+          id="socialYoutube"
+          className="settings-page__input"
+          type="url"
+          placeholder="https://www.youtube.com/@yourchannel"
+          value={socialYoutube}
+          onChange={(e) => setSocialYoutube(e.target.value)}
+        />
+
         <button
           className="settings-page__save"
           type="submit"

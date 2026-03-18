@@ -6,6 +6,11 @@ export interface SiteSettings {
   openingsUrl?: string;
   requestDemoUrl?: string;
   experienceToolUrl?: string;
+  socialFacebook?: string;
+  socialTwitter?: string;
+  socialLinkedin?: string;
+  socialInstagram?: string;
+  socialYoutube?: string;
 }
 
 interface MessageResponse {
